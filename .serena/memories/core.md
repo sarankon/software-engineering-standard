@@ -1,15 +1,17 @@
 # Core
 
 - Project: `software-engineering-standard`.
-- Purpose: develop a versioned Software Engineering Standard for consistent software development across projects, including AI-assisted development.
-- Current repository content: only Serena project metadata; no Standard artifacts or application source yet.
-- Working design: Global Standard is the source of truth; project-specific `project_context/` is an instance containing project knowledge, decisions, state, and applicable standard configuration.
-- Planned major areas: `standards/`, `ai_development/`, `blueprints/`, `migrations/`.
-- Project Context concept: `AGENTS.md` is the AI entry point; `project_context/` is project-owned and must not be overwritten wholesale by Standard/Blueprint updates.
-- Versioning concept: Standard and Project Context Blueprint are independently versioned; upgrades use migration + verification rather than blind copying.
-
-- Read `mem:tech_stack` for current repository/tooling technology facts.
-- Read `mem:conventions` for repository conventions once they are established.
-- Read `mem:task_completion` for completion/verification requirements once they are established.
-- Read `mem:suggested_commands` for Windows-specific project commands once commands are established.
-- Serena memory maintenance guidance is in `mem:memory_maintenance`.
+- Purpose: develop a versioned Software Engineering Standard (SES) for consistent software development across projects, including AI-assisted development.
+- Repository branch: `main`.
+- Latest committed milestone: `docs: define SES foundation`.
+- Current design: Global SES is the reusable source of truth; each consuming project owns its `project_context/` and must not be overwritten wholesale during upgrades.
+- Major SES areas: `standards/`, `ai_development/`, `blueprints/`, `migrations/`.
+- Standard taxonomy selected: `principles/`, `foundation/`, `architecture/`, `development/`, `presentation/`, `data/`, `integration/`, `security/`, `quality/`, `operations/`, `maintenance/`.
+- Standard Rule design selected: stable Rule IDs (`SES-{CATEGORY}-{NUMBER}`), lifecycle (`draft`, `proposed`, `active`, `deprecated`, `removed`), requirement levels (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`), applicability, and sections for Requirement, Rationale, Examples, Verification, Exceptions, and Migration.
+- `standards/SPECIFICATION.md` defines the canonical Rule format; `standards/rule-template.md` is the authoring template.
+- AI development model: `AGENTS.md` is the project AI entry point; AI should load project context, identify applicable standards, plan, implement, verify, update context, and complete.
+- Project Context Blueprint: `project_context/` contains `development_standard/`, `ai_development/`, `knowledge_base/`, `decisions/`, and `state/`; Blueprint is independently versioned and upgrades require migration guidance.
+- Foundation structure created: `project-structure.md`, `repository.md`, `configuration.md`, `environment.md`, `dependencies.md`, `documentation.md`, `ai-entry-point.md`.
+- Foundation principle approved: SES defines structural responsibilities and boundaries, not a universal physical directory layout. Projects may adapt physical structure to technology and architecture.
+- `standards/foundation/project-structure.md` is now a substantive Draft defining technology independence, separation of concerns, discoverability, consistency, project-context isolation, no unnecessary structure, required responsibilities, AI discoverability, exceptions, verification, and migration.
+- The project is documentation/design work at this stage; no application source implementation exists.
