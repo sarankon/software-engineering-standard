@@ -54,6 +54,7 @@ while preserving provenance and avoiding false confirmation.
 - Need a clear onboarding procedure/prompt eventually: initialize from Blueprint → inspect repo → inspect available legacy context if present → reconcile evidence → write new canonical Project Context → record provenance/version.
 - Version metadata for the applied Blueprint/Standards should be recorded in the generated Project Context.
 - Future Blueprint/Standard updates should be handled as explicit version upgrades, not ad-hoc edits.
+- Version policy before real-world adoption: keep all Blueprint/Schema/Procedure/Evidence version identifiers at `1.0.0`. Do not increment versions during prototype design/testing. After real usage begins, changes must be implemented and tested first, then the version is incremented according to the established versioning policy.
 
 ## Current status
 Repository discovery for `cr-printing-next`: PASS.

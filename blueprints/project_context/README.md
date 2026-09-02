@@ -10,7 +10,7 @@ It stores project understanding and state, not source code.
 - Users primarily review, discuss, decide, and instruct AI to apply changes.
 - Context is organized by domain so AI can read and update only the relevant area.
 - Facts, decisions, proposals, and unknowns are distinguishable.
-- Important information has provenance so AI can distinguish repository evidence from user decisions and AI inference.
+- Important information has provenance and, where useful, concrete evidence references so AI can trace why a record exists.
 - The structure can be reconstructed from an existing repository and upgraded across Blueprint versions.
 
 ## Project-Owned Structure
@@ -49,14 +49,28 @@ Users MAY directly edit Project Context when necessary, but AI remains the prima
 
 ## Existing Project Onboarding
 
-AI SHOULD be able to build Project Context from an existing repository by:
+The canonical onboarding workflow is defined in [`ONBOARDING.md`](./ONBOARDING.md). It treats an old `.project-context` as supporting migration evidence rather than as the required target structure.
 
-1. Inspecting repository structure and configuration.
-2. Extracting observable facts.
-3. Identifying technology and architecture.
-4. Identifying requirements, decisions, problems, and current work where evidence exists.
-5. Marking uncertain information as proposed or unknown instead of presenting inference as fact.
-6. Producing an initial Project Context for user review.
+At a high level, AI should:
+
+1. Detect repository, Git, documentation, instructions, standards, and any existing Project Context.
+2. Read authoritative project instructions and applicable standards.
+3. Analyze the current repository to establish implementation facts.
+4. Read historical sources and old context to recover decisions, problems, completed work, and history.
+5. Reconstruct all canonical domains using the current Blueprint.
+6. Attach concrete evidence references to important reconstructed information.
+7. Reconcile conflicts without silently overwriting confirmed user decisions.
+8. Record Blueprint/Standard versions and onboarding limitations.
+9. Generate the derived AI Handoff.
+10. Validate schema, provenance, references, and work-state distinctions.
+
+AI MUST treat current repository evidence as the primary source for current implementation facts, while Git and old context remain important historical/supporting evidence.
+
+## Evidence Traceability
+
+Project Context records may include `evidence` references such as repository-relative files, document sections, configuration keys, database objects, source symbols, and Git commit IDs. See [`evidence-schema.md`](./evidence-schema.md).
+
+Evidence supports traceability but does not change whether a record is confirmed, proposed, unknown, or inferred.
 
 ## Standards Relationship
 

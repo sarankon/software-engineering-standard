@@ -23,4 +23,5 @@ Design principles:
 - It must support onboarding an existing repository: analyze repository -> extract facts -> identify architecture/technology -> identify decisions/problems/work -> generate Project Context.
 - It must record which Software Standard/Database Standard versions the project follows.
 - It must support future standard updates and migration workflows without mixing migration tooling into the current Project Context blueprint.
+- All Blueprint/Schema/Procedure/Evidence version identifiers remain `1.0.0` during the pre-production design and testing phase. Version changes are deferred until after real-world adoption; subsequent changes must be tested before incrementing the version.
 - Domain files should be independently readable/writable by AI while keeping a predictable structure.

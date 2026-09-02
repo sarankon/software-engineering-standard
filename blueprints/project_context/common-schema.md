@@ -14,6 +14,12 @@ created_at: <ISO-8601 timestamp>
 updated_at: <ISO-8601 timestamp>
 related_to:
   - <domain>/<id>
+evidence:
+  - type: file | document | git_commit | git_state | config | database | symbol | external_reference | user_statement
+    locator: <durable-or-repository-relative-locator>
+    detail: <optional-precise-anchor>
+    observed_at: <ISO-8601 timestamp>
+    note: <optional-relevance-note>
 ```
 
 ## Field Rules
@@ -46,6 +52,12 @@ Contains the domain-specific information. It SHOULD describe facts and decisions
 
 References other Project Context records using `domain/id` notation where cross-domain relationships are useful.
 
+### `evidence`
+
+A collection of concrete references supporting the record. Evidence is traceability metadata and does not replace `source`, `status`, or `confidence`.
+
+Each evidence item SHOULD identify a durable locator and MAY identify a precise detail such as a document section, configuration key, database table, source symbol, or Git commit. See [`evidence-schema.md`](./evidence-schema.md) for the normative evidence reference rules.
+
 ## Domain Extension
 
 A domain MAY define additional fields. Extensions MUST:
@@ -68,6 +80,10 @@ content: |
 related_to:
   - architecture/reporting
   - technology/message-queue
+evidence:
+  - type: user_statement
+    locator: decision-record/DEC-ARCH-001
+    detail: approved decision
 ```
 
 The example is illustrative only; domain-specific ID conventions may be defined later.

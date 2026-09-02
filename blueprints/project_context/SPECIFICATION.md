@@ -1,4 +1,3 @@
-# Project Context Schema Specification
 
 **Schema Version:** 1.0.0
 **Status:** Active
@@ -24,6 +23,7 @@ A Project Context record SHOULD use the following conceptual fields when applica
 | `created_at` | RECOMMENDED | Creation timestamp |
 | `updated_at` | RECOMMENDED | Last update timestamp |
 | `related_to` | OPTIONAL | References to related context records |
+| `evidence` | RECOMMENDED | Concrete references supporting important records |
 
 The physical representation MAY be Markdown, YAML front matter, JSON, or another format defined by the Blueprint implementation. The conceptual fields and semantics MUST remain consistent.
 
@@ -59,7 +59,17 @@ When `source` is `ai_inference`, AI SHOULD record a confidence level:
 
 Confidence expresses confidence in the inference, not importance.
 
-## 6. Facts and Decisions
+## 6. Evidence References
+
+An `evidence` collection MAY be attached to a record to provide traceability to concrete supporting material.
+
+Evidence references SHOULD be used for important reconstructed facts and SHOULD be specific enough for another AI agent to locate the supporting material again. Examples include repository-relative files, document sections, configuration keys, database objects, source symbols, and Git commit IDs.
+
+Evidence does not change the meaning of `source`, `status`, or `confidence`. In particular, evidence supporting an AI inference does not make that inference confirmed.
+
+See [`evidence-schema.md`](./evidence-schema.md) for the normative evidence reference model.
+
+## 7. Facts and Decisions
 
 Project Context MUST distinguish observable facts from decisions.
 
@@ -68,19 +78,19 @@ Project Context MUST distinguish observable facts from decisions.
 
 A repository observation MUST NOT be rewritten as a decision merely because it is currently implemented.
 
-## 7. User Decision Protection
+## 8. User Decision Protection
 
 Information with `source: user_decision` and `status: confirmed` is protected project knowledge.
 
 AI MUST NOT change or remove it merely because repository evidence differs. AI SHOULD surface the discrepancy and ask for a decision, unless the user has explicitly instructed the change.
 
-## 8. Domain Separation
+## 9. Domain Separation
 
 Each record belongs to a conceptual domain. AI SHOULD update the narrowest relevant domain and SHOULD NOT duplicate the same authoritative fact across multiple domains unless a deliberate summary is needed.
 
 When duplication is necessary, one location SHOULD be treated as authoritative and the other as a reference/summary.
 
-## 9. References
+## 10. References
 
 Cross-domain references SHOULD use stable IDs rather than relying only on titles or file paths.
 
@@ -88,13 +98,13 @@ References SHOULD be updated when a record is intentionally renamed or moved.
 
 Broken references SHOULD be treated as a Project Context maintenance issue.
 
-## 10. Timestamps
+## 11. Timestamps
 
 Timestamps SHOULD use an unambiguous machine-readable representation such as ISO 8601 with timezone information.
 
 `updated_at` SHOULD change whenever the substantive meaning of a record changes.
 
-## 11. AI Maintenance Rules
+## 12. AI Maintenance Rules
 
 AI SHOULD:
 
@@ -104,6 +114,7 @@ AI SHOULD:
 - record uncertainty instead of inventing missing information;
 - remove stale duplication where a canonical record exists;
 - keep related domains consistent;
+- preserve traceability for important reconstructed information;
 - avoid storing source code in Project Context.
 
 AI MUST NOT:
@@ -113,7 +124,15 @@ AI MUST NOT:
 - overwrite confirmed user decisions without explicit instruction;
 - use Project Context as a substitute for the actual repository when repository evidence is available.
 
-## 12. Versioning
+## 13. Existing Repository Onboarding
+
+The normative onboarding workflow is defined in [`ONBOARDING.md`](./ONBOARDING.md).
+
+AI MUST follow that procedure when constructing a new canonical Project Context from an existing repository unless the user explicitly requests a narrower operation.
+
+Onboarding MUST distinguish current implementation evidence from historical evidence and MUST preserve confirmed user decisions when sources conflict.
+
+## 14. Versioning
 
 Schema versions use semantic versioning.
 
@@ -122,3 +141,5 @@ Schema versions use semantic versioning.
 - MAJOR: incompatible structural or semantic changes.
 
 A Blueprint upgrade MUST define how existing Project Context is preserved or transformed.
+
+Schema 1.0.0 adds optional/recommended evidence references and formalizes the existing-repository onboarding procedure. Existing 1.0.x records remain structurally usable because `evidence` is additive and optional.
