@@ -10,13 +10,11 @@
 - `standards/SPECIFICATION.md` defines the canonical Rule format; `standards/rule-template.md` is the authoring template.
 - AI development model: `AGENTS.md` is the project AI entry point; AI should load project context, identify applicable standards, plan, implement, verify, update context, and complete.
 - Project Context Blueprint: `project_context/` contains `development_standard/`, `ai_development/`, `knowledge_base/`, `decisions/`, and `state/`; Blueprint is independently versioned and upgrades require migration guidance.
-- Foundation files complete as substantive Drafts: `project-structure.md`, `repository.md`, `configuration.md`, `environment.md`, `dependencies.md`, `documentation.md`, `ai-entry-point.md`.
-- Foundation principle: SES defines structural responsibilities and boundaries, not a universal physical directory layout. Projects may adapt physical structure to technology and architecture.
-- Architecture set is complete as substantive Drafts: `architecture-principles.md`, `system-boundaries.md`, `component-boundaries.md`, `dependency-direction.md`, and `interfaces.md`.
+- Foundation set approved by user: `project-structure.md`, `repository.md`, `configuration.md`, `environment.md`, `dependencies.md`, `documentation.md`, `ai-entry-point.md`.
+- Architecture set approved by user: `architecture-principles.md`, `system-boundaries.md`, `component-boundaries.md`, `dependency-direction.md`, `interfaces.md`.
 - `standards/glossary.md` and `standards/standard-relationships.md` are substantive Drafts defining shared terminology and Standard responsibility/relationships.
-- Foundation and Architecture HTML review pages were approved by the user: `standards/html/foundation.html` and `standards/html/architecture.html`.
-- Development Standards completed and approved by the user as Drafts: `standards/development/implementation.md` and `standards/development/error-handling.md`.
-- Development review page: `standards/html/development.html` was created for Thai browser-based review and approved by the user.
-- HTML review workflow: `.md` files are the Source of Truth; corresponding `.html` files are maintained as Thai reading/review versions. Any requested Standard change must update both `.md` and `.html` consistently.
-- Current next work: begin Presentation Standards under `standards/presentation/`, using the same Draft -> Thai HTML review -> user approval -> commit workflow.
+- Development Standards approved by user as Drafts: `standards/development/implementation.md` and `standards/development/error-handling.md`.
+- HTML review workflow has been discontinued. `standards/html/` was removed by the user. Markdown files under `standards/` are now the source of truth and review is performed directly from Markdown.
+- Presentation Standards approved by user as Drafts: `standards/presentation/user-interface.md`, `standards/presentation/interaction.md`, and `standards/presentation/accessibility.md`.
+- Presentation rules cover interface intent, consistency, shared reusable components/patterns, theme-aligned browser/platform controls, UI states, feedback, safe actions, responsive presentation, accessibility, content clarity, separation from business behavior, table pagination, in-place create/update workflows, save/update action availability, required-field indication, and appropriate user notifications.
 - Current work is documentation/design; no application source implementation exists.
