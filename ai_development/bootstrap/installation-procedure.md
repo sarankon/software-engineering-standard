@@ -65,6 +65,4 @@ The Project Context SHOULD retain a concise initialization record containing pro
 
 Installation is complete only when the active Blueprint validates, important claims are traceable, no unconfirmed inference is presented as fact or decision, versions are recorded, AI Handoff is consistent, and no critical initialization errors remain.
 
-## 9. Relationship to Existing Repository Onboarding
-
-This procedure initializes a new project. Existing repositories requiring reconstruction from source, history, or legacy Project Context MUST use `blueprints/project_context/ONBOARDING.md`.
+## 9. Relationship to Project Onboarding\n\nThis procedure initializes a new project. The umbrella `ai_development/onboarding/project-onboarding.md` selects the appropriate flow. Existing repositories requiring reconstruction MUST use `blueprints/project_context/ONBOARDING.md`; Git history and other Git metadata are never required as onboarding evidence.\n

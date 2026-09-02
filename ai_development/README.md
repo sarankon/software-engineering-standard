@@ -17,6 +17,6 @@ The user prompt intentionally avoids duplicating the framework's detailed proced
 ## Available prompts
 
 - [`bootstrap-prompt.md`](./bootstrap-prompt.md) — install or initialize the framework in a target project and continue with repository analysis.
-- [`bootstrap/installation-procedure.md`](./bootstrap/installation-procedure.md) — normative new-project installation procedure.
+- [`bootstrap/installation-procedure.md`](./bootstrap/installation-procedure.md) — normative new-project installation procedure.\n- [`onboarding/project-onboarding.md`](./onboarding/project-onboarding.md) — umbrella onboarding procedure for new, existing, and update flows.\n- [`../schemas/project-onboarding/README.md`](../schemas/project-onboarding/README.md) — onboarding run schema.
 
 Future prompts may be added for explicit update, migration, or re-onboarding workflows.

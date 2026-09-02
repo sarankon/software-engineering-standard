@@ -39,7 +39,7 @@ Source Code
 3. Paste it into the AI agent working in the target project.
 4. The AI uses the Framework Repository URL in the prompt to discover [`AI_BOOTSTRAP.md`](./AI_BOOTSTRAP.md), then follows the applicable Blueprint, Standards, and Procedures.
 
-The user does not need to know the internal framework file structure. The AI is responsible for discovering the authoritative instructions.
+The user does not need to know the internal framework file structure. The AI is responsible for discovering the authoritative instructions.\n\nProject onboarding is orchestrated by [`ai_development/onboarding/project-onboarding.md`](./ai_development/onboarding/project-onboarding.md) and records its run using [`schemas/project-onboarding/README.md`](./schemas/project-onboarding/README.md).
 
 ### For an AI agent receiving this repository as Framework Repository
 

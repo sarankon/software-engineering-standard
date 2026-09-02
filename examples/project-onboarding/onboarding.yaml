@@ -1,0 +1,43 @@
+onboarding:
+  id: onboarding-2026-09-03-001
+  project_id: cr-printing-next
+  mode: existing
+  framework_version: 1.0.0
+  record_state: proposed
+  status: awaiting-approval
+  evidence_policy: source-config-project-docs-v1
+  project_context_version: 1.0.0
+  profile_id: project-standard-profile
+  assessment_ids:
+    - assessment-2026-09-03-001
+  findings:
+    - id: finding-001
+      type: fact
+      summary: Project uses Next.js 16 App Router with React 19 and TypeScript.
+      evidence:
+        - path: package.json
+          reference: dependencies.next
+        - path: tsconfig.json
+      confidence: high
+      record_state: proposed
+    - id: finding-002
+      type: unknown
+      summary: Deployment environment is not confirmed by repository evidence.
+      evidence: []
+      confidence: low
+      record_state: proposed
+  proposals:
+    - id: proposal-001
+      target: Project Standard Profile
+      summary: Adopt the applicable test-release Standards after user review.
+      reason: No confirmed profile was found.
+      impact: Creates the project baseline for subsequent assessment.
+      status: proposed
+  approval:
+    required: true
+    status: pending
+  validation:
+    status: partial
+    unresolved_critical: []
+  started_at: <timestamp>
+  updated_at: <timestamp>

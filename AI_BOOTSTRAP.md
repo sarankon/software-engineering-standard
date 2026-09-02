@@ -10,7 +10,7 @@ When this repository is provided as the Framework Repository for another softwar
 
 1. Treat this repository as the source of truth for Software Engineering Standard definitions, Blueprint schemas, and framework procedures.
 2. Read this file first.
-3. Discover and read the relevant AI Development instructions under `ai_development/`, including the applicable Bootstrap/Installation Procedure.
+3. Discover and read the relevant AI Development instructions under `ai_development/`, including the applicable Bootstrap/Installation Procedure and Project Onboarding Procedure.
 4. Discover and read the relevant Blueprint under `blueprints/`.
 5. Discover and read the applicable Software Standards under `standards/`.
 6. Identify the active versions before changing the target project.
@@ -21,7 +21,7 @@ When this repository is provided as the Framework Repository for another softwar
 11. Preserve traceability through provenance and evidence where required by the Blueprint.
 12. Never silently convert an AI inference or repository observation into a confirmed user decision.
 13. When confirmed user decisions conflict with current repository evidence, report the conflict instead of silently overwriting the decision.
-14. Treat the current target repository as the primary source for current implementation facts; use historical records as historical evidence.
+14. Treat the current target repository source/configuration as the primary source for current implementation facts. Project-owned historical records may provide supporting context, but Git history and Git metadata MUST NOT be used as onboarding evidence.
 15. Validate the resulting Project Context against the active Blueprint before considering bootstrap complete.
 16. Generate or update the AI Handoff required by the Blueprint.
 17. After successful bootstrap, use the resulting Project Context and AI Handoff to understand the project and continue normal development work.
