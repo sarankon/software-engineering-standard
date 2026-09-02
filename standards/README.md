@@ -40,3 +40,6 @@ Supporting files:
 - `glossary.md` — shared terminology.
 
 The baseline drafts are intentionally reviewable as a set. They are not final approval and MUST NOT be treated as active merely because a rule uses `MUST`.
+
+- `schemas/standard-assessment/README.md` — Standard Assessment schema.
+- `blueprints/standard_assessment/README.md` — Standard Assessment project artifact blueprint.

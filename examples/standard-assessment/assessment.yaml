@@ -1,0 +1,31 @@
+assessment:
+  id: assessment-2026-09-03-001
+  project_id: example-project
+  profile_id: project-standard-profile
+  standard_id: SES-SEC
+  standard_version: 0.1.0
+  status: partial
+  record_state: proposed
+  findings:
+    - rule_id: SES-SEC-001
+      standard_id: SES-SEC
+      standard_version: 0.1.0
+      status: pass
+      evidence:
+        - path: .project-context/project-rules.md
+          reference: security-design
+      confidence: medium
+      finding: Security considerations are documented at project level.
+      assessed_at: <timestamp>
+      record_state: proposed
+    - rule_id: SES-SEC-004
+      standard_id: SES-SEC
+      standard_version: 0.1.0
+      status: unknown
+      evidence: []
+      confidence: low
+      finding: Available evidence is insufficient to determine whether secrets are handled correctly.
+      recommendation: Inspect secret configuration and deployment mechanism.
+      assessed_at: <timestamp>
+      record_state: proposed
+  assessed_at: <timestamp>
