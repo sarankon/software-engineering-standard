@@ -1,5 +1,7 @@
 # Task Completion
 
-- No automated validation pipeline exists yet.
-- Until project tooling is established, documentation changes should be checked for structural consistency, internal references, naming, and Markdown validity.
-- Once the Standard repository defines its own validation commands, record the exact commands here.
+- AI Bootstrap completed: root `AI_BOOTSTRAP.md`; copy-ready prompt `ai_development/bootstrap-prompt.md`; usage docs `ai_development/README.md`; updated root `README.md`.
+- Files were read back and internal references checked.
+- No language server is configured, so Serena diagnostics are unavailable.
+- No target-project source code modified.
+- Next: end-to-end bootstrap/onboarding test against `test-fixtures/existing-repository/cr-printing-next`.

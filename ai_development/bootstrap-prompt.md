@@ -12,8 +12,8 @@ https://github.com/sarankon/software-engineering-standard.git
 
 สิ่งที่ต้องทำ:
 1. อ่านและทำความเข้าใจ Framework Repository ก่อนเริ่มแก้ไข Project
-2. ค้นหาและอ่านจุดเริ่มต้นสำหรับ AI / Bootstrap / Installation Instructions ของ Framework
-3. ตรวจสอบ Blueprint, Software Standards, Procedures และ Version ที่เกี่ยวข้อง
+2. ค้นหาและอ่าน AI Bootstrap entry point ของ Framework (AI_BOOTSTRAP.md) ก่อนอ่านรายละเอียดอื่น
+3. อ่าน AI Development instructions, Bootstrap/Installation Procedure, Blueprint, Software Standards และ Version ที่เกี่ยวข้องตามที่ Framework ระบุ
 4. อ่าน Project Repository ปัจจุบันและ Project Instructions ที่มีอยู่ เช่น AGENTS.md, CLAUDE.md หรือไฟล์คำแนะนำอื่น ๆ
 5. ตรวจสอบว่ามี Project Context อยู่แล้วหรือไม่
 6. หากยังไม่มี Project Context ให้สร้างตาม Blueprint ปัจจุบัน
@@ -54,4 +54,5 @@ https://github.com/sarankon/software-engineering-standard.git
 
 - The URL above is the default public Framework Repository. If the Framework is hosted elsewhere, replace only the Repository URL.
 - This is a bootstrap prompt, not the complete Framework procedure. The AI should discover the authoritative procedures and schemas from the Framework Repository itself.
+- The prompt explicitly points the AI to the root `AI_BOOTSTRAP.md` entry point, while keeping the rest of the framework discoverable rather than hard-coded into the user workflow.
 - Do not copy this prompt into the target project's source code. It is intended to be pasted into the AI conversation when initializing the project.

@@ -1,6 +1,6 @@
 # AI Development Prompts
 
-This directory contains the user-facing prompts and procedures for using Software Engineering Standard with another project.
+This directory contains user-facing prompts and AI development procedures for using Software Engineering Standard with another project.
 
 ## Recommended usage
 
@@ -12,7 +12,7 @@ The simplest workflow is:
 4. Replace the Framework Repository URL if using a different fork/version source.
 5. Let the AI discover and follow the framework instructions from the repository.
 
-The prompt is intentionally short at the user level. Detailed behavior belongs to the framework's procedures, blueprints, and standards rather than being duplicated in every user prompt.
+The user prompt intentionally avoids duplicating the framework's detailed procedures. The AI should discover `AI_BOOTSTRAP.md`, then the applicable instructions, Blueprint, Standards, and Procedures.
 
 ## Available prompts
 
