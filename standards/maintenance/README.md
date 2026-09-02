@@ -1,5 +1,5 @@
 # Maintenance Standards
 
-Standards for technical debt, dependency upgrades, deprecation, compatibility, lifecycle management, and long-term maintainability.
+- `maintenance-baseline.md` — supported components, obsolescence, upgrades, deprecation, technical debt, compatibility, cleanup, and maintenance evidence.
 
-Detailed rules will be added incrementally.
+All baseline rules are draft pending comprehensive review.

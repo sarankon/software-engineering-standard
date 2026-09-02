@@ -1,5 +1,5 @@
 # Operations Standards
 
-Standards for logging, audit, monitoring, observability, deployment, runtime operations, and operational reliability.
+- `operations-baseline.md` — deployment, environment separation, health, logging, monitoring, backup/recovery, safe deployment, and incident readiness.
 
-Detailed rules will be added incrementally.
+All baseline rules are draft pending comprehensive review.

@@ -1,5 +1,5 @@
 # Integration Standards
 
-Standards for APIs, external services, messaging, events, and system-to-system integrations.
+- `integration-baseline.md` — contracts, timeouts, retries, idempotency, external input, compatibility, observability, secrets, and provider coupling.
 
-Detailed rules will be added incrementally.
+All baseline rules are draft pending comprehensive review.

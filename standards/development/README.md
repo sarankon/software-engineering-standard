@@ -4,7 +4,8 @@ Standards for implementation practices, error handling, code quality at implemen
 
 ## Standards
 
+- `development-baseline.md` — baseline rule set covering implementation, business logic placement, error handling, input contracts, side effects, testing, and duplication.
 - `implementation.md` — หลักการสำหรับการเปลี่ยน requirement และ design ให้เป็น implementation ที่ถูกต้อง ชัดเจน และดูแลรักษาได้
 - `error-handling.md` — หลักการสำหรับการจัดการ failure และ error ให้ predictable, diagnosable และปลอดภัย
 
-Additional development standards will be added incrementally where they represent a distinct engineering responsibility and do not duplicate other SES categories.
+The baseline is a draft consolidation candidate; detailed files remain supporting material until comprehensive review decides ownership and final wording.

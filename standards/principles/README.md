@@ -49,6 +49,8 @@ Every meaningful standard should define how compliance can be verified. Rules th
 
 ## 8. Evolution
 
-SES evolves through real project usage, recurring engineering problems, lessons learned, and demonstrated improvements.
+SES evolves through real project usage, recurring engineering problems, lessons learned, and demonstrated improvements. Standard changes must preserve history through versioning and changelog entries, with migration guidance when existing projects can be affected.
 
-Standard changes must preserve history through versioning and changelog entries, with migration guidance when existing projects can be affected.
+## Baseline Draft
+
+`principles-baseline.md` provides the current rule-level draft for comprehensive review. It is draft only and does not replace this foundational guidance until approved.

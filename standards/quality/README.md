@@ -1,5 +1,5 @@
 # Quality Standards
 
-Standards for testing, validation, code quality, reliability, and engineering quality assurance.
+- `quality-baseline.md` — risk-based verification, regression testing, determinism, critical-path checks, static/build validation, defects, and evidence.
 
-Detailed rules will be added incrementally.
+All baseline rules are draft pending comprehensive review.
