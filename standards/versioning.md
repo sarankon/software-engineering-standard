@@ -31,7 +31,7 @@ blueprint:
   version: 1.0.0
 schemas:
   project-context:
-    version: 1.0.0
+    version: 0.1.0
 procedures:
   onboarding:
     version: 1.0.0

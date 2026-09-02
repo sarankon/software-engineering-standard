@@ -1,6 +1,6 @@
 # API Key Standard
 
-**Standard Version:** 1.0.0
+**Standard Version:** 0.1.0
 
 All API Key records use the Common Audit model.
 

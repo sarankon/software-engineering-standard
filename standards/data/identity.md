@@ -1,6 +1,6 @@
 # Identity and Authorization Baseline
 
-**Standard Version:** 1.0.0
+**Standard Version:** 0.1.0
 
 All tables in this section use the Common Audit model.
 

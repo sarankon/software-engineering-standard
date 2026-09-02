@@ -1,6 +1,6 @@
 # Data Standards
 
-**Database Standard Version:** 1.0.0
+**Database Standard Version:** 0.1.0
 
 Standards for data modeling, databases, data integrity, migrations, and data lifecycle management.
 

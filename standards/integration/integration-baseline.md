@@ -1,7 +1,7 @@
 # Integration Standard
 
 **Standard ID:** `SES-INT`
-**Version:** `1.0.0`
+**Version:** `0.1.0`
 **Record State:** `confirmed`
 **Lifecycle State:** `draft`
 **Category:** Integration

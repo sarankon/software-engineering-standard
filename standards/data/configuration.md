@@ -1,6 +1,6 @@
 # Application Configuration Standard
 
-**Standard Version:** 1.0.0
+**Standard Version:** 0.1.0
 
 All configuration tables use the Common Audit model.
 
