@@ -14,9 +14,14 @@ The simplest workflow is:
 
 The user prompt intentionally avoids duplicating the framework's detailed procedures. The AI should discover `AI_BOOTSTRAP.md`, then the applicable instructions, Blueprint, Standards, and Procedures.
 
-## Available prompts
+## Available prompts and procedures
 
 - [`bootstrap-prompt.md`](./bootstrap-prompt.md) — install or initialize the framework in a target project and continue with repository analysis.
-- [`bootstrap/installation-procedure.md`](./bootstrap/installation-procedure.md) — normative new-project installation procedure.\n- [`onboarding/project-onboarding.md`](./onboarding/project-onboarding.md) — umbrella onboarding procedure for new, existing, and update flows.\n- [`../schemas/project-onboarding/README.md`](../schemas/project-onboarding/README.md) — onboarding run schema.
+- [`bootstrap/installation-procedure.md`](./bootstrap/installation-procedure.md) — normative new-project installation procedure.
+- [`onboarding/project-onboarding.md`](./onboarding/project-onboarding.md) — umbrella onboarding procedure for new, existing, and update flows.
+- [`migration/framework-update-procedure.md`](./migration/framework-update-procedure.md) — controlled Framework update/migration workflow.
+- [`../schemas/project-onboarding/README.md`](../schemas/project-onboarding/README.md) — onboarding run schema.
+- [`../schemas/framework-update/README.md`](../schemas/framework-update/README.md) — Framework Update / Migration record schema.
+- [`../migrations/framework/README.md`](../migrations/framework/README.md) — version-specific migration guide conventions.
 
-Future prompts may be added for explicit update, migration, or re-onboarding workflows.
+The Framework Update procedure requires an assessment and explicit user approval before applying changes that require approval. Application source-code changes remain separate development work.

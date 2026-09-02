@@ -1,0 +1,58 @@
+migration:
+  id: MIG-2026-0001
+  framework:
+    from_version: 1.0.0
+    to_version: 1.1.0
+  status: proposed
+  record_state: proposed
+  requested_at: 2026-09-03T00:00:00+07:00
+  changes:
+    - id: MC-001
+      artifact: project-context-schema
+      from_version: 1.0.0
+      to_version: 1.1.0
+      classification: migration-required
+      status: proposed
+      impact: medium
+      approval_required: true
+      approved: false
+      action: migrate
+      evidence:
+        - path: .project-context/project-context.md
+          reference: schema_version
+      risks:
+        - Existing records require field mapping.
+      proposal: Migrate records while preserving provenance and record state.
+
+    - id: MC-002
+      artifact: software-standard
+      from_version: 0.1.0
+      to_version: 0.1.0
+      classification: no-impact
+      status: proposed
+      impact: low
+      approval_required: false
+      approved: false
+      action: skip
+      evidence: []
+      risks: []
+      proposal: No migration required.
+
+    - id: MC-003
+      artifact: application-source
+      from_version: unknown
+      to_version: unknown
+      classification: breaking
+      status: proposed
+      impact: high
+      approval_required: true
+      approved: false
+      action: propose-development-work
+      evidence: []
+      risks:
+        - Application changes require separate engineering review.
+      proposal: Create a development task; do not modify source code as part of framework migration.
+
+validation:
+  status: unknown
+  checks: []

@@ -26,6 +26,21 @@ When this repository is provided as the Framework Repository for another softwar
 16. Generate or update the AI Handoff required by the Blueprint.
 17. After successful bootstrap, use the resulting Project Context and AI Handoff to understand the project and continue normal development work.
 
+## Framework Update / Migration
+
+When a target project is already using SES and requests an update:
+
+1. Detect current Framework and artifact versions.
+2. Identify the target Framework/artifact versions.
+3. Read applicable version-specific migration guides under `migrations/framework/`.
+4. Produce an Update Assessment and classify changes as `no-impact`, `compatible`, `migration-required`, or `breaking`.
+5. Create a Migration Plan and unique Migration ID using `schemas/framework-update/`.
+6. Wait for explicit user approval for changes that require approval.
+7. Apply only approved Framework-level transformations.
+8. Keep application source/configuration work as separate proposed development work.
+9. Validate and record the migration result.
+10. Preserve idempotence and allow partial/blocked migrations to resume.
+
 ## Safety and Scope
 
 - Do not modify target-project source code merely to bootstrap Project Context unless the applicable framework procedure explicitly requires it.
@@ -34,6 +49,7 @@ When this repository is provided as the Framework Repository for another softwar
 - Do not treat Git history as proof of current work state by itself.
 - Do not copy this repository's `.serena/` directory into downstream projects. `.serena/` is the development workspace for this Framework repository, not a distributable Framework artifact.
 - Keep Framework metadata, Blueprint versions, and Software Standard versions explicit in the target Project Context.
+- Framework migration does not implicitly authorize application source-code, database, API, UI, or infrastructure changes.
 
 ## Discovery Guidance
 
@@ -65,7 +81,7 @@ If a decision is required from the user, the AI should explain the issue, provid
 
 ## Completion Criteria
 
-Bootstrap is complete only when:
+Bootstrap or migration is complete only when:
 
 - the applicable Framework version has been identified;
 - the target Project Context has been created or updated according to the active Blueprint;
@@ -73,8 +89,9 @@ Bootstrap is complete only when:
 - important claims have appropriate provenance/evidence;
 - user decisions are distinguished from AI inference;
 - work-management states are kept distinct;
-- Blueprint and Standard versions are recorded;
-- AI Handoff is available and consistent with authoritative Project Context records; and
+- Blueprint, Schema, Procedure, and Standard versions are recorded where applicable;
+- AI Handoff is available and consistent with authoritative Project Context records;
+- migration records, when applicable, have consistent statuses and validation results; and
 - validation has completed without unresolved critical errors.
 
-If critical information is unavailable, the AI must record the limitation and report it rather than claiming bootstrap is complete without qualification.
+If critical information is unavailable, the AI must record the limitation and report it rather than claiming bootstrap or migration is complete without qualification.
