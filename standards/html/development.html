@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="style.css"><title>SES — Development</title></head>
+<body><main class="wrap">
+<div class="hero"><h1>Development Standards</h1><span class="badge">ภาษาไทย · Draft</span><p>มาตรฐานสำหรับการพัฒนาและ implementation</p></div>
+<div class="card"><h2>1. Implementation Standard</h2>
+<h3>เป้าหมาย</h3><p>เปลี่ยน requirement และ design ให้เป็น implementation ที่ถูกต้อง เข้าใจได้ ดูแลรักษาได้ และสอดคล้องกับสถาปัตยกรรม โดยไม่ผูกกับภาษา framework หรือเครื่องมือใดเป็นพิเศษ</p>
+<h3>หลักการ</h3><ol>
+<li><b>สอดคล้องกับ Intent</b> — โค้ดต้องสะท้อน responsibility และ behavior ที่ระบบตั้งใจไว้</li>
+<li><b>Correctness มาก่อนความสั้น</b> — ให้ความสำคัญกับ correctness, clarity และ predictable behavior</li>
+<li><b>Responsibility ชัดเจน</b> — แต่ละส่วนควรมี responsibility ที่เข้าใจได้</li>
+<li><b>หลีกเลี่ยงความซับซ้อนที่ไม่จำเป็น</b> — ไม่เพิ่ม abstraction หรือ indirection โดยไม่มีประโยชน์ชัดเจน</li>
+<li><b>Behavior สำคัญต้องชัดเจน</b> — business rules, เงื่อนไข และ side effects ที่สำคัญต้องระบุและเข้าใจได้</li>
+<li><b>ควบคุม Side Effects</b> — state changes และ external interactions ควรอยู่ในตำแหน่งที่ตรวจสอบผลกระทบได้</li>
+<li><b>เคารพ Architecture</b> — ห้ามสร้าง dependency หรือ boundary violation ที่ขัดกับ Architecture โดยไม่มี decision รองรับ</li>
+<li><b>จำกัด Change Impact</b> — การเปลี่ยนแปลงควรไม่กระจายไปส่วนที่ไม่เกี่ยวข้องโดยไม่จำเป็น</li>
+<li><b>พิจารณา Duplication อย่างมีเหตุผล</b> — ไม่สร้าง abstraction เพียงเพราะ code มีโครงสร้างคล้ายกัน</li>
+<li><b>Implementation ที่ซับซ้อนต้องมีเหตุผล</b> — ควรมีเหตุผลใน code, documentation หรือ Decision ที่เกี่ยวข้อง</li>
+</ol>
+<h3>ตรวจสอบ</h3><p>ตรวจ requirement, architectural intent, responsibility, complexity, boundaries, side effects และ change impact</p>
+</div>
+<div class="card"><h2>2. Error Handling Standard</h2>
+<h3>เป้าหมาย</h3><p>ทำให้การตรวจจับ จัดการ ส่งต่อ และรายงาน error มี behavior ที่ predictable, diagnosable และปลอดภัย</p>
+<h3>หลักการ</h3><ol>
+<li><b>จัดการตามความหมาย</b> — แยก error ที่จัดการได้ออกจาก error ที่ควรส่งต่อหรือทำให้ operation ล้มเหลว</li>
+<li><b>รักษา Contract</b> — error behavior ต้องสอดคล้องกับ interface และ contract</li>
+<li><b>ห้ามกลบ Error สำคัญ</b> — ห้าม silently ignore error ที่กระทบ correctness, security, data integrity หรือ operations</li>
+<li><b>มี Context เพียงพอ</b> — error ควรช่วยระบุ operation และสาเหตุ โดยไม่เปิดเผยข้อมูลลับ</li>
+<li><b>รักษา State Consistency</b> — คำนึงถึง partial changes, cleanup และ consistency</li>
+<li><b>แปลง Error ที่ Boundary</b> — error ที่ข้าม boundary ควรเหมาะกับ contract ของ boundary</li>
+<li><b>Retry ต้องมีเหตุผล</b> — retry เมื่อมีโอกาสสำเร็จเมื่อทำซ้ำ และต้องคำนึงถึง idempotency และขอบเขต</li>
+<li><b>ใช้กลไกที่เหมาะสม</b> — ไม่สร้าง abstraction ที่ซับซ้อนเกินลักษณะของ error</li>
+</ol>
+<h3>ตรวจสอบ</h3><p>ตรวจ error propagation, contract, state consistency, retry behavior และการไม่เปิดเผย sensitive information</p>
+</div>
+<div class="card note"><b>สถานะ:</b> Draft — HTML นี้เป็นฉบับอ่านภาษาไทยสำหรับ review โดย <code>.md</code> เป็น Source of Truth และเนื้อหาต้องสอดคล้องกัน</div>
+</main></body></html>
