@@ -7,69 +7,38 @@ migration:
   record_state: proposed
   requested_at: 2026-09-03T00:00:00+07:00
   requested_by: user
+  test_only: true
+  note: Synthetic migration plan for validating the Framework Update workflow. Framework 1.1.0 is not released.
 
 changes:
   - id: MC-001
     artifact: framework-version-metadata
-    from_version: 1.0.0
-    to_version: 1.1.0
     classification: compatible
     status: proposed
-    impact: low
     approval_required: true
     approved: false
     action: adopt
-    evidence: []
-    risks: []
-    proposal: Update project-owned framework version metadata after approval.
-
   - id: MC-002
     artifact: framework-update-schema
-    from_version: 1.0.0
-    to_version: 1.1.0
     classification: migration-required
     status: proposed
-    impact: medium
     approval_required: true
     approved: false
     action: migrate
-    evidence: []
-    risks:
-      - Existing migration records may require field transformation.
-    proposal: Validate and transform existing migration records without losing identifiers or traceability.
-
   - id: MC-003
     artifact: project-context
-    from_version: 1.0.0
-    to_version: 1.1.0
     classification: compatible
     status: proposed
-    impact: low
     approval_required: true
     approved: false
     action: adopt
-    evidence: []
-    risks: []
-    proposal: Revalidate Project Context and update only required version references.
-
   - id: MC-004
     artifact: software-standard
-    from_version: 0.1.0
-    to_version: 0.2.0
     classification: compatible
     status: proposed
-    impact: medium
     approval_required: true
     approved: false
     action: propose-development-work
-    evidence: []
-    risks: []
-    proposal: Reassess affected standards after an approved profile update; keep application changes separate.
-
-audit:
-  created_by: AI
-  approval_boundary: user
-  application_source_changes: prohibited
 
 validation:
   status: unknown

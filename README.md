@@ -1,4 +1,3 @@
-# Software Engineering Standard
 
 Software Engineering Standard (SES) is a versioned engineering system for building software consistently across projects, for both human developers and AI agents.
 
@@ -39,7 +38,9 @@ Source Code
 3. Paste it into the AI agent working in the target project.
 4. The AI uses the Framework Repository URL in the prompt to discover [`AI_BOOTSTRAP.md`](./AI_BOOTSTRAP.md), then follows the applicable Blueprint, Standards, and Procedures.
 
-The user does not need to know the internal framework file structure. The AI is responsible for discovering the authoritative instructions.\n\nProject onboarding is orchestrated by [`ai_development/onboarding/project-onboarding.md`](./ai_development/onboarding/project-onboarding.md) and records its run using [`schemas/project-onboarding/README.md`](./schemas/project-onboarding/README.md).
+The user does not need to know the internal framework file structure. The AI is responsible for discovering the authoritative instructions.
+
+Project onboarding is orchestrated by [`ai_development/onboarding/project-onboarding.md`](./ai_development/onboarding/project-onboarding.md) and records its run using [`schemas/project-onboarding/README.md`](./schemas/project-onboarding/README.md).
 
 ### For an AI agent receiving this repository as Framework Repository
 
@@ -51,13 +52,13 @@ Start with [`AI_BOOTSTRAP.md`](./AI_BOOTSTRAP.md). It is the stable self-describ
 Reusable engineering standards such as architecture, coding, database, API, security, audit, logging, testing, performance, and deployment.
 
 ### `ai_development/`
-AI-assisted development procedures and user-facing prompts, including bootstrap/onboarding and future update or migration workflows.
+AI-assisted development procedures and user-facing prompts, including bootstrap/onboarding and controlled framework update/migration workflows.
 
 ### `blueprints/`
 Blueprints defining the structure of project-owned artifacts. A Blueprint is a specification, not a copy of project data.
 
 ### `migrations/`
-Explicit migration paths for upgrading existing projects when a Standard or Blueprint changes.
+Explicit migration paths for upgrading existing projects when a Standard or Blueprint changes. Generic orchestration lives in `ai_development/migration/`.
 
 ## Project Context
 
@@ -77,40 +78,16 @@ project-context/
 └── ai-handoff/
 ```
 
-Project Context stores project knowledge rather than source code. AI is the primary maintainer; users primarily review, decide, and provide additional requirements. `AI Handoff` is a derived working snapshot, not the source of truth.
+Project Context is project-owned knowledge, not source code and not external AI memory.
 
-## Rule Language
+## Important Boundaries
 
-Standards should use precise requirement levels:
-
-- `MUST` — mandatory requirement
-- `MUST NOT` — prohibited behavior
-- `SHOULD` — recommended practice
-- `SHOULD NOT` — generally discouraged practice
-- `MAY` — optional practice
-
-Meaningful rules should explain how compliance can be verified.
-
-## Versioning
-
-SES uses Semantic Versioning:
-
-```text
-MAJOR.MINOR.PATCH
-```
-
-Before real-world adoption, framework Blueprint, Schema, Procedure, and Evidence identifiers remain at `1.0.0` while design and testing continue. After real usage begins, changes must be implemented and tested before version increments according to the established versioning policy.
-
-## Source of Truth
-
-- Global reusable engineering rules → SES
-- Project-specific rules and knowledge → Project Context
+- Project Context → project knowledge and decisions
+- Software Standards → reusable engineering rules
+- AI Development → how AI operates on the project
+- Blueprints / Schemas → structure of project-owned artifacts
 - Actual implementation → source code/configuration
 - Historical changes → Git
-- Upgrade procedures → SES migrations/procedures
+- Upgrade procedures → SES migration procedures and version-specific migration guides
 
 Each piece of information should have one authoritative location.
-
-## Development Workspace
-
-`.serena/` is the AI development workspace for this SES repository. It may be committed with the framework repository so framework development can continue across machines, but it is **not** a distributable SES artifact and must not be copied into downstream projects by the bootstrap workflow.

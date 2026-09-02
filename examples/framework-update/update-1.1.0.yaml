@@ -66,11 +66,6 @@ changes:
     risks: []
     proposal: Reassess affected standards after an approved profile update; keep application changes separate.
 
-audit:
-  created_by: AI
-  approval_boundary: user
-  application_source_changes: prohibited
-
 validation:
   status: unknown
   checks: []

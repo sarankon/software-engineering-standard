@@ -1,0 +1,23 @@
+framework:
+  name: software-engineering-standard
+  version: 1.0.0
+  record_state: confirmed
+  source: repository-root
+  adopted_at: 2026-09-03
+
+artifacts:
+  blueprint:
+    project_context: 1.0.0
+    project_standard_profile: 1.0.0
+    standard_assessment: 1.0.0
+  schema:
+    framework_update: 1.0.0
+  procedure:
+    framework_update: 1.0.0
+  standards:
+    software_standard: 0.1.0
+
+update:
+  test_target: 1.1.0
+  status: not-released
+  note: The 1.0.0-to-1.1.0 migration guide is a workflow test artifact and does not represent a released Framework version.
