@@ -3,6 +3,9 @@
 - Domain separation: Project Context is split into domain-based files, not one monolithic file.
 - AI is the primary writer/maintainer. User is primarily a reader and decision-maker. Normal flow: user discusses/decides with AI first, then explicitly tells AI to apply the change. User may directly edit when necessary, but AI should remain the main maintainer.
 - Work management is separated into Completed, In Progress, Next, Backlog, and Blocked. `Next` is not the same as `Backlog`.
+- Cross-domain logical changes use a Change Set as a correlation mechanism; canonical records remain in their own domains.
+- Work-management current state and transition history are separate concerns. Historical transitions must be evidence-supported during onboarding and must not be invented.
+- Framework, Blueprint, Schema, Procedure, and individual Standard versions are distinct version layers and should be recorded explicitly in Project Context.
 
 Recommended Project Context domains:
 - project-identity
@@ -25,3 +28,8 @@ Design principles:
 - It must support future standard updates and migration workflows without mixing migration tooling into the current Project Context blueprint.
 - All Blueprint/Schema/Procedure/Evidence version identifiers remain `1.0.0` during the pre-production design and testing phase. Version changes are deferred until after real-world adoption; subsequent changes must be tested before incrementing the version.
 - Domain files should be independently readable/writable by AI while keeping a predictable structure.
+
+Design additions from E2E onboarding test:
+- `blueprints/project_context/change-set-schema.md` defines cross-domain Change Set correlation.
+- `blueprints/project_context/work-transition-schema.md` defines work-state transition history.
+- `standards/versioning.md` defines explicit Framework/Blueprint/Schema/Procedure/Standard version layers.
