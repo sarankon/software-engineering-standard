@@ -2,7 +2,7 @@
 
 ```yaml
 id: problem/observability-001
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:

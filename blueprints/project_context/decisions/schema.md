@@ -7,7 +7,7 @@ Records decisions that establish project direction. A decision is different from
 ```yaml
 id: <stable-decision-id>
 title: <decision title>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 category: architecture | technology | data | security | product | operations | process | other

@@ -6,7 +6,7 @@ Provides a compact operational snapshot for a new or returning AI agent. It is a
 
 ```yaml
 id: handoff
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: repository_analysis | user_decision | ai_inference
 current_understanding: |
   <concise current understanding>

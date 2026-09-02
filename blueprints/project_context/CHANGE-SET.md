@@ -2,9 +2,10 @@
 
 **Schema Version:** 1.0.0
 
+See [`change-set-schema.md`](./change-set-schema.md) for the normative schema.
+
 A Change Set groups Project Context records that describe one coherent change affecting multiple domains. It is a correlation mechanism, not a replacement for domain records.
 
-See [`change-set-schema.md`](./change-set-schema.md) for the normative schema.
 
 ## When to Use
 

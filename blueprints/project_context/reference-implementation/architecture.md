@@ -2,7 +2,7 @@
 
 ```yaml
 id: architecture/application
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:
@@ -15,7 +15,7 @@ content:
 
 ---
 id: architecture/order-processing
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:

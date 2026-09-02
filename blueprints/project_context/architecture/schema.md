@@ -7,7 +7,7 @@ Records the project's structural architecture, components, boundaries, data flow
 ```yaml
 id: <stable-architecture-id>
 title: <architecture concept>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 type: system | component | boundary | data-flow | integration | deployment | pattern | constraint | other

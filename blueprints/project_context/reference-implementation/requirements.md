@@ -2,7 +2,7 @@
 
 ```yaml
 id: requirements/order-processing
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:
@@ -14,7 +14,7 @@ content:
 
 ---
 id: requirements/auditability
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:

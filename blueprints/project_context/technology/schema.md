@@ -7,7 +7,7 @@ Records technologies and technical dependencies that materially describe how the
 ```yaml
 id: <stable-technology-id>
 title: <technology name>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 category: language | framework | runtime | database | cache | messaging | infrastructure | cloud | library | tool | external-service | other

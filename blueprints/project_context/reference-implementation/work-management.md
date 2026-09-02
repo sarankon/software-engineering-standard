@@ -4,7 +4,7 @@
 
 ```yaml
 id: work/001
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:
@@ -16,7 +16,7 @@ content:
 
 ```yaml
 id: work/002
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:
@@ -28,7 +28,7 @@ content:
 
 ```yaml
 id: work/003
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:
@@ -40,7 +40,7 @@ content:
 
 ```yaml
 id: work/004
-status: proposed
+record_state: proposed
 source: ai_inference
 confidence: medium
 content:
@@ -52,7 +52,7 @@ content:
 
 ```yaml
 id: work/005
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:

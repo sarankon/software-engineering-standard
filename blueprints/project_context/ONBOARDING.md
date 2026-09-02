@@ -8,7 +8,7 @@
 
 This procedure defines the deterministic workflow for creating a new canonical Project Context from an existing software repository.
 
-The existing `.project-context` is treated as migration input, not as the canonical target structure. The target is generated from the current Blueprint and reconciled against current repository evidence.
+The existing `.project-context` is treated as migration input, not as the canonical target structure. The target is generated from the current Blueprint and reconciled against current repository/source evidence.
 
 ## 2. Inputs
 
@@ -83,7 +83,7 @@ Generate the canonical Project Context using the current Blueprint domains:
 - history
 - ai-handoff
 
-For each record, assign the appropriate status and source. Use `proposed` or `unknown` where evidence is insufficient.
+For each record, assign the appropriate `record_state` and source. Use `proposed` or `unknown` where evidence is insufficient.
 
 ### Step 6 — Record Evidence References
 
@@ -93,11 +93,11 @@ Evidence references MUST support traceability without copying large source-code 
 
 ### Step 7 — Reconcile Conflicts
 
-Compare repository facts, user decisions, historical records, and old context. For each material conflict:
+Compare repository facts, user decisions, project-owned historical records, and old context. For each material conflict:
 
 - preserve confirmed user decisions;
 - update current implementation facts to match current repository evidence;
-- preserve historical facts in history where appropriate;
+- preserve supported historical facts in history where appropriate;
 - mark unresolved interpretation as proposed or unknown;
 - record the discrepancy when it affects future development.
 
@@ -121,13 +121,14 @@ Before presenting the result as complete, validate:
 
 - all canonical domains exist;
 - required records have valid common fields;
-- statuses and provenance are valid;
+- `record_state` and provenance are valid;
 - important claims have traceable evidence where available;
 - confirmed user decisions were preserved;
 - proposed/unknown information is not presented as confirmed;
-- Next, In Progress, Backlog, Completed, and Blocked remain distinct;
+- Next, In Progress, Backlog, Completed, and Blocked remain distinct through `work_state`;
 - cross-domain references resolve or are explicitly marked as unresolved;
-- the recorded Blueprint/Standard versions are correct.
+- the recorded Blueprint/Standard versions are correct;
+- no Git history or Git metadata was used as onboarding evidence.
 
 ## 5. Onboarding Completion Record
 

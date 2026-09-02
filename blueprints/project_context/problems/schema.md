@@ -7,7 +7,7 @@ Records known problems, technical debt, risks, limitations, and unresolved discr
 ```yaml
 id: <stable-problem-id>
 title: <problem title>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 type: defect | technical-debt | risk | limitation | discrepancy | security | performance | operational | other
@@ -27,7 +27,7 @@ updated_at: <ISO-8601>
 
 ## Rules
 
-- `status: confirmed` means the problem itself is established, not necessarily that its root cause is known.
+- `record_state: confirmed` means the problem itself is established, not necessarily that its root cause is known.
 - Unknown root causes MUST remain unknown rather than being fabricated.
 - A discrepancy between repository implementation and a confirmed decision SHOULD be recorded here when it needs tracking.
 - Resolved problems SHOULD retain their historical record rather than being deleted.

@@ -32,6 +32,11 @@ Design principles:
 - Domain files should be independently readable/writable by AI while keeping a predictable structure.
 
 Design additions from E2E onboarding test:
-- `blueprints/project_context/CHANGE-SET.md` defines cross-domain Change Set rules; its normative schema file is still to be added.
-- `blueprints/project_context/WORK-TRANSITIONS.md` defines work-state transition rules; its normative schema file is still to be added.
+- `blueprints/project_context/CHANGE-SET.md` defines cross-domain Change Set rules; its normative schema file is `blueprints/project_context/change-set-schema.md`.
+- `blueprints/project_context/WORK-TRANSITIONS.md` defines work-state transition rules; its normative schema file is `blueprints/project_context/work-transition-schema.md`.
 - `standards/versioning.md` defines explicit Framework/Blueprint/Schema/Procedure/Standard version layers.
+
+- `record_state` is the common knowledge-record lifecycle field: `confirmed | proposed | unknown | deprecated`; it is not the execution state of work.
+- `work_state` is the work execution field: `completed | in-progress | next | backlog | blocked`; work-state files must carry both `record_state` and `work_state`.
+- Normative schemas added: `blueprints/project_context/change-set-schema.md` and `blueprints/project_context/work-transition-schema.md`; Change Sets use `change_set_state`, while Work Transitions use `from_state`/`to_state`.
+- The previous E2E onboarding gaps for Change Set schema and Work Transition schema are now addressed; versions remain `1.0.0` during pre-production.

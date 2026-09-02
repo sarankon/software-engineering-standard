@@ -2,7 +2,7 @@
 
 ```yaml
 id: project/acme-order-management-api
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:

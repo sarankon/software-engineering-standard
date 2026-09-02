@@ -2,7 +2,7 @@
 
 ```yaml
 id: decision/architecture-001
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:

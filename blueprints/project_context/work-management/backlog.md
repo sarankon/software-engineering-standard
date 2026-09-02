@@ -5,7 +5,8 @@ Use this file for valid project work that is not currently prioritized as the im
 ```yaml
 id: WORK-004
 title: <backlog item>
-status: backlog
+record_state: confirmed
+work_state: backlog
 source: user_decision | repository_analysis | ai_inference | external_reference
 content: |
   <work description and useful context>

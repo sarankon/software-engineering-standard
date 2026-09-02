@@ -2,7 +2,7 @@
 
 ```yaml
 id: ai-handoff/current
-status: confirmed
+record_state: confirmed
 source: ai_inference
 confidence: high
 content:

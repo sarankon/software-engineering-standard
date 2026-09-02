@@ -5,7 +5,8 @@ Use this file for work that should be considered immediately after the current w
 ```yaml
 id: WORK-003
 title: <next work>
-status: next
+record_state: confirmed
+work_state: next
 source: user_decision | repository_analysis | ai_inference | external_reference
 content: |
   <why this is the next logical work and relevant preparation>

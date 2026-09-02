@@ -17,7 +17,7 @@ A Project Context record SHOULD use the following conceptual fields when applica
 | `id` | YES | Stable identifier within the domain |
 | `title` | YES | Human-readable name |
 | `content` | YES | The actual context information |
-| `status` | YES | Lifecycle/confidence state |
+| `record_state` | YES | Lifecycle/acceptance state of the Project Context record |
 | `source` | YES | Origin/provenance category |
 | `confidence` | RECOMMENDED | AI confidence when the information is inferred or discovered |
 | `created_at` | RECOMMENDED | Creation timestamp |
@@ -27,14 +27,16 @@ A Project Context record SHOULD use the following conceptual fields when applica
 
 The physical representation MAY be Markdown, YAML front matter, JSON, or another format defined by the Blueprint implementation. The conceptual fields and semantics MUST remain consistent.
 
-## 3. Status
+## 3. Record State
 
-The following statuses are defined:
+The following `record_state` values are defined:
 
 - `confirmed` — accepted as project truth.
 - `proposed` — suggested or inferred and awaiting confirmation.
 - `unknown` — not currently known or insufficient evidence exists.
 - `deprecated` — previously valid but no longer applicable.
+
+`record_state` describes the state of the Project Context record itself. It MUST NOT be used as a substitute for a domain-specific workflow state such as `work_state`.
 
 AI MUST NOT silently convert `proposed` or `unknown` information into `confirmed` information.
 
@@ -65,7 +67,7 @@ An `evidence` collection MAY be attached to a record to provide traceability to 
 
 Evidence references SHOULD be used for important reconstructed facts and SHOULD be specific enough for another AI agent to locate the supporting material again. Examples include repository-relative files, document sections, configuration keys, database objects, source symbols.
 
-Evidence does not change the meaning of `source`, `status`, or `confidence`. In particular, evidence supporting an AI inference does not make that inference confirmed.
+Evidence does not change the meaning of `source`, `record_state`, or `confidence`. In particular, evidence supporting an AI inference does not make that inference confirmed.
 
 See [`evidence-schema.md`](./evidence-schema.md) for the normative evidence reference model.
 
@@ -80,7 +82,7 @@ A repository observation MUST NOT be rewritten as a decision merely because it i
 
 ## 8. User Decision Protection
 
-Information with `source: user_decision` and `status: confirmed` is protected project knowledge.
+Information with `source: user_decision` and `record_state: confirmed` is protected project knowledge.
 
 AI MUST NOT change or remove it merely because repository evidence differs. AI SHOULD surface the discrepancy and ask for a decision, unless the user has explicitly instructed the change.
 
@@ -130,7 +132,7 @@ The normative onboarding workflow is defined in [`ONBOARDING.md`](./ONBOARDING.m
 
 AI MUST follow that procedure when constructing a new canonical Project Context from an existing repository unless the user explicitly requests a narrower operation.
 
-Onboarding MUST distinguish current implementation evidence from historical evidence and MUST preserve confirmed user decisions when sources conflict.
+Onboarding MUST distinguish current implementation evidence from project-owned historical documentation and MUST preserve confirmed user decisions when sources conflict. Git history and Git metadata MUST NOT be used as onboarding evidence.
 
 ## 14. Versioning
 

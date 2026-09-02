@@ -7,7 +7,7 @@ Records rules that apply specifically to this project in addition to the global 
 ```yaml
 id: <stable-project-rule-id>
 title: <rule title>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 type: convention | constraint | exception | policy | workflow | integration | other

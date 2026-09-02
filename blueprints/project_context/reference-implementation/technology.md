@@ -2,7 +2,7 @@
 
 ```yaml
 id: technology/runtime
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:
@@ -13,7 +13,7 @@ content:
 
 ---
 id: technology/database
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:
@@ -23,7 +23,7 @@ content:
 
 ---
 id: technology/message-queue
-status: proposed
+record_state: proposed
 source: ai_inference
 confidence: medium
 content:

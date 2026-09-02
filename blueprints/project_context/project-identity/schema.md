@@ -11,7 +11,7 @@ Required fields:
 ```yaml
 id: project
 name: <project name>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 summary: <one-paragraph description>
 purpose: <why the project exists>

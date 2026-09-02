@@ -7,7 +7,8 @@ Records project work state. Work state is intentionally separated from Requireme
 ```yaml
 id: <stable-work-item-id>
 title: <work item title>
-status: completed | in-progress | next | backlog | blocked
+record_state: confirmed | proposed | unknown | deprecated
+work_state: completed | in-progress | next | backlog | blocked
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 type: feature | task | bugfix | refactor | research | migration | documentation | maintenance | other
@@ -24,8 +25,10 @@ updated_at: <ISO-8601>
 completed_at: <ISO-8601 or null>
 ```
 
-## Status Semantics
+## Record State vs. Work State
 
+- `record_state` describes the knowledge record: `confirmed`, `proposed`, `unknown`, or `deprecated`.
+- `work_state` describes execution state: `completed`, `in-progress`, `next`, `backlog`, or `blocked`.
 - `completed`: work is finished and accepted as complete.
 - `in-progress`: actively being worked on now.
 - `next`: the intended next work after current work; not necessarily fully planned.

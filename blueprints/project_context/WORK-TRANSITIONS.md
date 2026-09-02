@@ -8,8 +8,9 @@ See [`work-transition-schema.md`](./work-transition-schema.md) for the normative
 
 ## Rules
 
-- A work item has one current state.
+- A work item has one current `work_state`.
 - Current state is stored in `completed.md`, `in-progress.md`, `next.md`, `backlog.md`, or `blocked.md`.
 - Historical transitions must not be invented from the current state.
-- AI should record a transition when it changes a work item's state.
+- AI should record a transition when it changes a work item's `work_state`.
 - During existing-repository onboarding, only evidence-supported historical transitions are reconstructed; otherwise the historical sequence remains unknown.
+- Git history and Git metadata MUST NOT be used to reconstruct transitions.

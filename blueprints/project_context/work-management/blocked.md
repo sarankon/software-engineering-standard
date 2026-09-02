@@ -5,7 +5,8 @@ Use this file for work that cannot proceed until a dependency, decision, or exte
 ```yaml
 id: WORK-005
 title: <blocked work>
-status: blocked
+record_state: confirmed
+work_state: blocked
 source: user_decision | repository_analysis | ai_inference | external_reference
 content: |
   <work description>

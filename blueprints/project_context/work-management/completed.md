@@ -5,7 +5,8 @@ Use this file for completed work items that remain useful as project context.
 ```yaml
 id: WORK-001
 title: <completed work>
-status: completed
+record_state: confirmed
+work_state: completed
 source: user_decision | repository_analysis | ai_inference | external_reference
 content: |
   <what was completed and relevant outcome>

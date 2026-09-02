@@ -7,7 +7,7 @@ Records what the project must, should, or may accomplish, including functional a
 ```yaml
 id: <stable-requirement-id>
 title: <requirement>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 type: functional | non-functional | constraint | business | compliance | technical

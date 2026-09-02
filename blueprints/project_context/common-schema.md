@@ -5,7 +5,7 @@ This document provides the canonical conceptual shape for a Project Context item
 ```yaml
 id: <stable-domain-identifier>
 title: <human-readable-title>
-status: confirmed | proposed | unknown | deprecated
+record_state: confirmed | proposed | unknown | deprecated
 source: user_decision | repository_analysis | ai_inference | external_reference
 confidence: high | medium | low
 content: |
@@ -72,7 +72,7 @@ A domain MAY define additional fields. Extensions MUST:
 ```yaml
 id: DEC-ARCH-001
 title: Use asynchronous processing for report generation
-status: confirmed
+record_state: confirmed
 source: user_decision
 content: |
   Report generation runs asynchronously because large reports may exceed

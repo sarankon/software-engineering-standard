@@ -5,7 +5,8 @@ Use this file for work currently being performed.
 ```yaml
 id: WORK-002
 title: <current work>
-status: in-progress
+record_state: confirmed
+work_state: in-progress
 source: user_decision | repository_analysis | ai_inference | external_reference
 content: |
   <current objective, progress, and remaining work>

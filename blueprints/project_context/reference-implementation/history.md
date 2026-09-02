@@ -2,7 +2,7 @@
 
 ```yaml
 id: history/2026-08-20
-status: confirmed
+record_state: confirmed
 source: repository_analysis
 confidence: high
 content:
@@ -12,7 +12,7 @@ content:
 
 ---
 id: history/2026-09-02
-status: confirmed
+record_state: confirmed
 source: user_decision
 confidence: high
 content:
