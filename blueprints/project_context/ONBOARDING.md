@@ -14,12 +14,13 @@ The existing `.project-context` is treated as migration input, not as the canoni
 
 AI SHOULD inspect the following inputs when available:
 
-1. The current repository and source/configuration files.
+1. The current repository source and configuration files.
 2. Repository documentation and project instructions.
-3. Git history and current Git state when Git is available.
-4. An existing `.project-context` or equivalent project knowledge, if present.
-5. Existing project-specific standards, blueprints, and AI instructions.
-6. The target Project Context Blueprint and Software Engineering Standard versions.
+3. An existing `.project-context` or equivalent project knowledge, if present.
+4. Existing project-specific standards, blueprints, and AI instructions.
+5. The target Project Context Blueprint and Software Engineering Standard versions.
+
+Git history, commit messages, commit diffs, branches, tags, and blame MUST NOT be used as onboarding evidence.
 
 Absence of any input MUST be recorded as an unavailable evidence source when it materially limits reconstruction.
 
@@ -29,9 +30,8 @@ When sources disagree, AI MUST use this precedence for current implementation fa
 
 1. Current repository/source/configuration evidence.
 2. Explicit user decisions and instructions.
-3. Git history as historical evidence.
-4. Existing Project Context as supporting evidence that may be stale.
-5. AI inference.
+3. Existing Project Context as supporting evidence that may be stale.
+4. AI inference.
 
 Explicit user decisions remain authoritative even when implementation evidence differs. AI MUST surface the discrepancy rather than silently changing the decision.
 
@@ -39,7 +39,7 @@ Explicit user decisions remain authoritative even when implementation evidence d
 
 ### Step 1 — Detect Repository and Context Inputs
 
-Identify the repository root, source/configuration areas, documentation, Git metadata, existing Project Context, project instructions, and applicable standards/blueprints.
+Identify the repository root, source/configuration areas, documentation, existing Project Context, project instructions, and applicable standards/blueprints. Do not inspect Git history or other Git metadata for onboarding evidence.
 
 Record which inputs were found and which were unavailable.
 
@@ -64,9 +64,9 @@ Do not infer business intent solely from names or implementation patterns.
 
 ### Step 4 — Read Historical and Existing Context
 
-Inspect Git history, changelogs, decision records, todo/work records, old Project Context files, and other historical documentation.
+Inspect changelogs, decision records, todo/work records, old Project Context files, project documentation, and other project-owned documentation when available.
 
-Use these sources to recover decisions, rationale, problems, completed work, and project history. Historical evidence MUST NOT automatically become current state.
+Use these sources as supporting evidence for context, decisions, rationale, problems, completed work, and project history. These records MUST NOT automatically override current implementation evidence. Git history MUST NOT be inspected or used.
 
 ### Step 5 — Reconstruct Domains
 
@@ -87,7 +87,7 @@ For each record, assign the appropriate status and source. Use `proposed` or `un
 
 ### Step 6 — Record Evidence References
 
-Important reconstructed records SHOULD include concrete evidence references. Prefer stable locators such as repository-relative file paths, document sections, Git commit IDs, configuration keys, schema/table names, or other durable anchors.
+Important reconstructed records SHOULD include concrete evidence references. Prefer stable locators such as repository-relative file paths, document sections, configuration keys, schema/table names, source symbols, or other durable anchors. Do not use Git commit IDs as onboarding evidence.
 
 Evidence references MUST support traceability without copying large source-code passages into Project Context.
 
@@ -136,7 +136,6 @@ A completed onboarding SHOULD retain a concise record of:
 - procedure version;
 - target Blueprint version;
 - Software Engineering Standard version(s);
-- repository revision/commit when available;
 - date/time of onboarding;
 - evidence sources inspected;
 - unavailable sources or limitations;

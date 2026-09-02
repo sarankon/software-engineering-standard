@@ -38,8 +38,6 @@ The following types are recommended:
 
 - `file` — repository-relative file or directory evidence.
 - `document` — documentation, Project Context, standard, or other document.
-- `git_commit` — a Git commit identified by commit ID.
-- `git_state` — current branch/status/tag state.
 - `config` — a configuration value or configuration section.
 - `database` — database schema/table/column/migration evidence.
 - `symbol` — a source-code symbol or named implementation element.
@@ -64,8 +62,6 @@ config:database.url
 
 When a document contains a relevant section, use `detail` rather than copying the section into Project Context.
 
-For Git evidence, record the commit ID rather than relying only on a commit message.
-
 For source evidence, prefer a repository-relative path plus a symbol or configuration key when available.
 
 ## Traceability Rules
@@ -80,6 +76,6 @@ For source evidence, prefer a repository-relative path plus a symbol or configur
 
 ## Current vs. Historical Evidence
 
-A Git commit, changelog entry, or old Project Context may prove that something existed or was decided historically, but it does not by itself prove current implementation state.
+Changelogs, old Project Context, and other project-owned historical documentation may describe earlier states or decisions, but they do not by themselves prove current implementation state.
 
-When current and historical evidence differ, current repository evidence should describe the current implementation, while historical evidence belongs in history or the relevant decision record.
+When current and historical evidence differ, current repository/source evidence should describe the current implementation, while historical documentation belongs in history or the relevant decision record. Git history is not an evidence source for Project Context.

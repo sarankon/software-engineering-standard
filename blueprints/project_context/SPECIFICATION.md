@@ -63,7 +63,7 @@ Confidence expresses confidence in the inference, not importance.
 
 An `evidence` collection MAY be attached to a record to provide traceability to concrete supporting material.
 
-Evidence references SHOULD be used for important reconstructed facts and SHOULD be specific enough for another AI agent to locate the supporting material again. Examples include repository-relative files, document sections, configuration keys, database objects, source symbols, and Git commit IDs.
+Evidence references SHOULD be used for important reconstructed facts and SHOULD be specific enough for another AI agent to locate the supporting material again. Examples include repository-relative files, document sections, configuration keys, database objects, source symbols.
 
 Evidence does not change the meaning of `source`, `status`, or `confidence`. In particular, evidence supporting an AI inference does not make that inference confirmed.
 

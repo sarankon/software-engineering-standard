@@ -15,7 +15,7 @@ updated_at: <ISO-8601 timestamp>
 related_to:
   - <domain>/<id>
 evidence:
-  - type: file | document | git_commit | git_state | config | database | symbol | external_reference | user_statement
+  - type: file | document | config | database | symbol | external_reference | user_statement
     locator: <durable-or-repository-relative-locator>
     detail: <optional-precise-anchor>
     observed_at: <ISO-8601 timestamp>

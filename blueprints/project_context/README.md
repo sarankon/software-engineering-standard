@@ -68,7 +68,7 @@ AI MUST treat current repository evidence as the primary source for current impl
 
 ## Evidence Traceability
 
-Project Context records may include `evidence` references such as repository-relative files, document sections, configuration keys, database objects, source symbols, and Git commit IDs. See [`evidence-schema.md`](./evidence-schema.md).
+Project Context records may include `evidence` references such as repository-relative files, document sections, configuration keys, database objects, source symbols. See [`evidence-schema.md`](./evidence-schema.md).
 
 Evidence supports traceability but does not change whether a record is confirmed, proposed, unknown, or inferred.
 
