@@ -16,7 +16,7 @@ It stores project understanding and state, not source code.
 ## Project-Owned Structure
 
 ```text
-project_context/
+.project-context/
 ├── project-identity/
 ├── technology/
 ├── architecture/

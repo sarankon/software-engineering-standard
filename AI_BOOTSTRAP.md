@@ -10,7 +10,7 @@ When this repository is provided as the Framework Repository for another softwar
 
 1. Treat this repository as the source of truth for Software Engineering Standard definitions, Blueprint schemas, and framework procedures.
 2. Read this file first.
-3. Discover and read the relevant AI Development instructions under `ai_development/`.
+3. Discover and read the relevant AI Development instructions under `ai_development/`, including the applicable Bootstrap/Installation Procedure.
 4. Discover and read the relevant Blueprint under `blueprints/`.
 5. Discover and read the applicable Software Standards under `standards/`.
 6. Identify the active versions before changing the target project.

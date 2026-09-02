@@ -33,7 +33,7 @@ A project MUST use a consistent structural convention within the same architectu
 
 ### 5. Project Context Isolation
 
-Project-specific engineering knowledge MUST be separated from application runtime code and data. SES-enabled projects MUST maintain their project context in the project-defined `project_context/` location. The contents and internal structure of project context are governed by the Project Context Blueprint.
+Project-specific engineering knowledge MUST be separated from application runtime code and data. SES-enabled projects MUST maintain their project context in the project-defined `.project-context/` location. The contents and internal structure of project context are governed by the Project Context Blueprint.
 
 ### 6. No Unnecessary Structure
 
