@@ -1,7 +1,11 @@
 # Presentation Standards
 
-Standards for user-facing presentation layers, including web, mobile, desktop, and other application interfaces.
+Standards for user-facing presentation, interaction, accessibility, responsiveness, and consistent presentation behavior.
 
-This area will cover UI structure, component design, design systems, accessibility, responsive behavior, state management, forms, presentation performance, and UI testing.
+## Standards
 
-Detailed rules will be added incrementally.
+- `user-interface.md` — interface intent, consistency, shared components and patterns, theme-aligned controls, UI states, feedback, responsiveness, accessibility, content clarity, and separation from business behavior.
+- `interaction.md` — tabular data pagination, in-place form workflows, action availability, required-field indication, and user notifications.
+- `accessibility.md` — accessibility-specific interaction, perception, navigation, focus, feedback, and error requirements.
+
+Detailed rules are added incrementally.
