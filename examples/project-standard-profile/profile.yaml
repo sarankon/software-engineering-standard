@@ -1,0 +1,23 @@
+profile:
+  id: project-standard-profile
+  project_id: example-project
+  profile_version: 1
+  record_state: confirmed
+  standards:
+    - standard_id: SES-SEC
+      version: 0.1.0
+      mode: adopt
+      record_state: confirmed
+      applicability: applicable
+      source: user-decision
+      confidence: high
+    - standard_id: SES-OPS
+      version: 0.1.0
+      mode: exclude
+      record_state: confirmed
+      applicability: not-applicable
+      reason: example project does not own deployment operations
+      source: user-decision
+      confidence: high
+  created_at: <timestamp>
+  updated_at: <timestamp>
