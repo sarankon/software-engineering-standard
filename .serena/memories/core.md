@@ -12,9 +12,10 @@
 - Project Context Blueprint: `project_context/` contains `development_standard/`, `ai_development/`, `knowledge_base/`, `decisions/`, and `state/`; Blueprint is independently versioned and upgrades require migration guidance.
 - Foundation set approved by user: `project-structure.md`, `repository.md`, `configuration.md`, `environment.md`, `dependencies.md`, `documentation.md`, `ai-entry-point.md`.
 - Architecture set approved by user: `architecture-principles.md`, `system-boundaries.md`, `component-boundaries.md`, `dependency-direction.md`, `interfaces.md`.
-- `standards/glossary.md` and `standards/standard-relationships.md` are substantive Drafts defining shared terminology and Standard responsibility/relationships.
+- `standards/glossary.md` is the shared terminology draft. Standard responsibility/relationships are now consolidated into `standards/SPECIFICATION.md`; `standards/standard-relationships.md` is no longer a separate source of truth.
 - Development Standards approved by user as Drafts: `standards/development/implementation.md` and `standards/development/error-handling.md`.
 - HTML review workflow has been discontinued. `standards/html/` was removed by the user. Markdown files under `standards/` are now the source of truth and review is performed directly from Markdown.
 - Presentation Standards approved by user as Drafts: `standards/presentation/user-interface.md`, `standards/presentation/interaction.md`, and `standards/presentation/accessibility.md`.
 - Presentation rules cover interface intent, consistency, shared reusable components/patterns, theme-aligned browser/platform controls, UI states, feedback, safe actions, responsive presentation, accessibility, content clarity, separation from business behavior, table pagination, in-place create/update workflows, save/update action availability, required-field indication, and appropriate user notifications.
 - Current work is documentation/design; no application source implementation exists.
+- Security Standard v1.0.0 is drafted under `standards/security/` with rules `SES-SEC-001` through `SES-SEC-014`; lifecycle remains Draft pending review/activation.
