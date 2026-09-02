@@ -1,38 +1,21 @@
-# AI Development Protocol
+# AI Development Prompts
 
-AI Development defines how AI agents operate within projects that adopt SES.
+This directory contains the user-facing prompts and procedures for using Software Engineering Standard with another project.
 
-## Principles
+## Recommended usage
 
-1. AI MUST understand the applicable project context before making non-trivial changes.
-2. AI MUST identify applicable SES rules before implementation.
-3. AI SHOULD plan changes before modifying code when the task has meaningful architectural or behavioral impact.
-4. AI MUST verify its changes before reporting completion.
-5. AI MUST update project context when a change materially affects documented project knowledge, decisions, architecture, flows, constraints, or state.
-6. AI MUST NOT invent undocumented project facts when evidence is unavailable.
+The simplest workflow is:
 
-## Lifecycle
+1. Open the Software Engineering Standard repository.
+2. Copy the prompt from [`bootstrap-prompt.md`](./bootstrap-prompt.md).
+3. Paste it into the AI agent working in the target project.
+4. Replace the Framework Repository URL if using a different fork/version source.
+5. Let the AI discover and follow the framework instructions from the repository.
 
-```text
-START
-  ↓
-Read AGENTS.md
-  ↓
-Load Project Context
-  ↓
-Identify Applicable Standards
-  ↓
-Understand Task
-  ↓
-Plan
-  ↓
-Implement
-  ↓
-Verify
-  ↓
-Update Context
-  ↓
-Complete
-```
+The prompt is intentionally short at the user level. Detailed behavior belongs to the framework's procedures, blueprints, and standards rather than being duplicated in every user prompt.
 
-Detailed protocols will be defined in separate documents under this directory.
+## Available prompts
+
+- [`bootstrap-prompt.md`](./bootstrap-prompt.md) — install or initialize the framework in a target project and continue with repository analysis.
+
+Future prompts may be added for explicit update, migration, or re-onboarding workflows.
