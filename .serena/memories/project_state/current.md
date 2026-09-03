@@ -1,23 +1,23 @@
 # Current Project State
 
-Date: 2026-09-03
+## Current Position
+- Framework consistency review: complete / PASS.
+- Framework contract review: complete / PASS.
+- Full Bootstrap / Existing Repository Onboarding validation: complete with limitation / PARTIAL-BLOCKED.
+- Runtime blocker remains the known native `better-sqlite3` / `node-gyp` / unavailable Python environment issue; classify as `BLOCKED`, not `FAIL`.
+- Framework architecture remains AI-as-execution-engine; no target-project runtime runner.
 
-Framework baseline remains 1.0.0; Project Context Blueprint 1.0.0; Software Standards 0.1.0 pre-production.
+## Latest User Decision
+- For current Framework usage, assume the AI agent can access GitHub, read the Framework repository, and download/clone it. Do not add fallback mechanisms for access limitations now; adapt only if a real agent limitation is reported.
+- User will call the overall system simply `Framework` in conversation.
+- The canonical bootstrap prompt is already in `ai_development/bootstrap-prompt.md`; it contains the Framework repository reference and discovery instructions. User workflow is to copy that prompt from the Framework repo and paste it into the AI agent in the target project.
 
-Roadmap progress:
-- Step 1 Final Framework Consistency Review: COMPLETE / PASS; commit `ea776f9`.
-- Step 2 Framework Contract Review: COMPLETE / PASS; commit `16d2fba`.
-- Step 3 Full Bootstrap / Existing Repository Onboarding Validation: COMPLETE WITH LIMITATION / PARTIAL-BLOCKED. Test procedure v1.0.0 exercised against `test-fixtures/existing-repository/cr-printing-next`.
+## Intended Pilot Workflow
+1. Clone one old project as a disposable/controlled Pilot.
+2. Copy `ai_development/bootstrap-prompt.md` from Framework and paste it into the AI agent working in the Pilot.
+3. AI accesses the Framework repository, reads `AI_BOOTSTRAP.md`, discovers applicable Procedures, Blueprints, Software Standards, and versions.
+4. AI inspects the existing project and reconstructs/updates Project Context according to the Existing Project Onboarding procedure.
+5. AI proposes material changes and waits for explicit user approval.
+6. AI applies only approved changes, validates, and records results.
 
-Step 3 results:
-- Repository discovery: PASS.
-- Evidence/context inspection: PASS; current source/configuration treated as primary current implementation evidence, existing Project Context as supporting evidence, and unsupported inference kept proposed/unknown.
-- User decision boundary: PASS; no unapproved material changes applied.
-- Static validation: PASS for the tested structure/version/provenance/traceability workflow.
-- Runtime validation: BLOCKED, not FAIL. `pnpm install --frozen-lockfile` reaches native `better-sqlite3` via `node-gyp`, but Python is unavailable in the environment.
-- Fixture protection: PASS; fixture source/configuration and fixture-owned context were not modified to bypass the blocker.
-- Formal result: `ai_development/onboarding/full-bootstrap-test-result-2026-09-03.md`.
-
-Important boundary: BLOCKED is an environment/toolchain limitation and must not be reported as a project failure. Do not modify fixture source merely to bypass it.
-
-Next roadmap step: Step 4 Pilot Project — apply Framework end-to-end to one real project.
+Do not treat the earlier assistant-generated abbreviated prompt as the canonical prompt; the repository prompt is authoritative for this workflow.
