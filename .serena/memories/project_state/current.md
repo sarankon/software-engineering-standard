@@ -1,36 +1,14 @@
 # Current Project State
 
-## Current Position
-- Framework consistency review: complete / PASS. Commit `ea776f9`.
-- Framework contract review: complete / PASS. Commit `16d2fba`.
-- Full Bootstrap / Existing Repository Onboarding validation: complete with limitation / PARTIAL-BLOCKED. Commit `9095e7e`; runtime blocker remains native `better-sqlite3` / `node-gyp` requiring Python; classify as `BLOCKED`, not `FAIL`.
-- Framework architecture remains AI-as-execution-engine; no target-project runtime runner.
-- Project AI Entry/Installation Architecture formalized and committed in `a7b2375`.
-- Follow-up consistency corrections completed and committed in `db2fc18`: canonical `.project-context/` paths, Project Context `standards/` and `framework/` domains, and corrected evidence example path.
-
-## Latest User Decisions
-- For current Framework usage, assume the AI agent can access GitHub, read the Framework repository, and download/clone it. Do not add fallback mechanisms for access limitations now; adapt only if a real agent limitation is reported.
-- User calls the overall system `Framework` in conversation.
-- Canonical bootstrap prompt is `ai_development/bootstrap-prompt.md`; it contains the Framework repository reference and discovery instructions. User copies it from the Framework repo and pastes it into the AI agent in the target project.
-- User approved the architecture direction: use `.project-context/` as the project-owned home for Project Context and installed Project Standard artifacts. Use a single project AI entry point at root `AGENTS.md`.
-- Approved navigation chain: `AGENTS.md` → `.project-context/AI_INSTRUCTIONS.md` → `.project-context/project-standard/` for installed Framework artifacts, with project-specific context domains alongside it under `.project-context/`.
-- Do not use `.project-context/project-standard/project-context/`; keep Project Context domains directly under `.project-context/`.
-- Future vendor-specific instruction files should point back to `AGENTS.md` where possible instead of duplicating Framework instructions.
-- Existing `AGENTS.md` content must not be overwritten; Framework integration should be additive and traceable.
-
-## Latest Completed Work
-- Consistency correction commit `db2fc18` is the current documentation baseline. Corrected README and AI-entry installation paths to `.project-context/`, aligned Project Context domain diagrams, and corrected the evidence-schema example from obsolete `.project-context/memories/decisions.md` to `.project-context/decisions/decisions.md`.
-- `git diff --check` passed after the corrections.
-
-## Intended Pilot Workflow
-1. Clone one old project as a disposable/controlled Pilot.
-2. Copy `ai_development/bootstrap-prompt.md` from Framework and paste it into the AI agent working in the Pilot.
-3. AI accesses the Framework repository, reads `AI_BOOTSTRAP.md`, discovers applicable Procedures, Blueprints, Software Standards, and versions.
-4. AI inspects the existing project and reconstructs/updates Project Context according to Existing Project Onboarding.
-5. AI proposes material changes and waits for explicit user approval.
-6. AI applies only approved changes, validates, and records results.
-
-## Current Next Work
-1. Validate installation scenarios: no AGENTS.md, existing project-owned AGENTS.md, old Framework installation, Framework update/migration, and existing Project Context.
-2. Re-run validation and record the result.
-3. Pilot on one real old project.
+- Framework: `software-engineering-standard`, branch `main`.
+- Framework baseline: 1.0.0; Project Context Blueprint: 1.0.0; Software Standards: 0.1.0 pre-production.
+- Architecture: AI is the direct Framework execution engine; no separate target-project runtime/bootstrap runner. User is the authorization boundary; material changes require explicit approval.
+- Project AI entry: root `AGENTS.md` → `.project-context/AI_INSTRUCTIONS.md` → installed Framework artifacts under `.project-context/project-standard/`; project-specific Context domains remain directly under `.project-context/`.
+- Existing `AGENTS.md` must be preserved; Framework integration is additive and traceable.
+- Existing-repository onboarding: current implementation uses `ai_development/bootstrap-prompt.md` and stable discovery entry `AI_BOOTSTRAP.md`.
+- Evidence priority: current source/configuration > explicit user decisions > project docs/context > AI inference. Git history, commits, diffs, branches, tags, and blame are not onboarding evidence.
+- Project Context records distinguish `confirmed | proposed | unknown | deprecated`; work items separately use `completed | in-progress | next | backlog | blocked`.
+- Runtime validation statuses: `PASS | FAIL | BLOCKED | NOT_RUN`; `BLOCKED != FAIL` and runtime status must be based on actual execution.
+- Final Full Bootstrap / Existing Repository Onboarding validation completed 2026-09-03: PASS WITH WARNING. Install, lint, TypeScript/build, static/context/evidence/approval/fixture-protection checks passed; lint had one non-blocking warning. The final fixture scenario intentionally used `allowBuilds.better-sqlite3: false`.
+- Current mode: begin real Pilot usage; do not over-engineer before evidence from actual use. Update Framework when Pilot reveals a real defect, missing contract, recurring ambiguity, or new requirement.
+- Preserve the existing validation result as repository history; future work should focus on Pilot findings rather than redoing completed validation without a reason.

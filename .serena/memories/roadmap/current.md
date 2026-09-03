@@ -1,20 +1,29 @@
 # Roadmap Status
 
-## Completed
-1. Final Framework Consistency Review — COMPLETE / PASS; commit `ea776f9`.
-2. Framework Contract Review — COMPLETE / PASS on 2026-09-03; commit `16d2fba`.
-3. Full Bootstrap / Existing Repository Onboarding Validation — COMPLETE WITH LIMITATION / PARTIAL-BLOCKED on 2026-09-03; fixture discovery/evidence/decision boundary/static validation/protection passed; runtime validation `BLOCKED`, not `FAIL`, due missing Python for native `better-sqlite3`/`node-gyp`. Commit `9095e7e`.
+## Current phase
+- Framework 1.0.0 / Project Context Blueprint 1.0.0 are the working baseline.
+- Software Standards remain 0.1.0 pre-production.
+- Full Bootstrap / Existing Repository Onboarding validation is complete: PASS WITH WARNING.
+- Next phase is real-world Pilot usage, not broad preemptive framework expansion.
 
-## Current Architecture Follow-up
-4. Formalize Project AI Entry/Installation Architecture — COMPLETE. Commit `a7b2375`.
-5. Consistency Review — COMPLETE for identified path/structure conflicts; corrected `.project-context/` documentation paths, aligned Project Context domain diagrams, and corrected obsolete evidence example. Commit `db2fc18`.
-6. Scenario Validation — NEXT: test no AGENTS.md, existing AGENTS.md, fresh Framework installation, old Framework update/migration, and existing Project Context.
-7. Re-run validation and record outcome — NEXT.
-8. Pilot Project — after installation/entry-point validation.
+## Pilot strategy
+1. Select one controlled/real existing project.
+2. Use the canonical bootstrap prompt and AI entry-point workflow.
+3. Let AI discover the Framework, reconstruct/update Project Context, propose material changes, obtain explicit approval, execute, validate, and record results.
+4. Capture concrete failures, ambiguities, missing evidence, missing contracts, and user-requested behavior changes.
+5. Convert only recurring or material Pilot findings into Framework changes.
+6. Re-test affected procedures/contracts before changing version identifiers.
 
-## Fixed Decisions
-- AI is the direct Framework execution engine; no separate target-project Automated Bootstrap Runner / Framework Runtime Runner.
-- User is the decision/authorization boundary; material changes require explicit approval.
-- Framework-owned components remain version 1.0.0 until explicit user-approved change.
-- Software Standards remain 0.1.0 pre-production until serious review/real-project adoption.
-- Validation statuses include `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, `UNKNOWN`; `BLOCKED != FAIL`.
+## Future development candidates (only when Pilot evidence justifies them)
+- Strengthen Project Context contract and Evidence/Provenance.
+- Formalize Proposal/Approval contract.
+- Strengthen reusable Validation contracts.
+- Validate across multiple project types.
+- Improve documentation or automation/CLI only when actual usage demonstrates need.
+
+## Fixed invariants
+- AI is the execution engine; no separate target-project runtime runner.
+- User approval is required for material changes.
+- Git history/commits/diffs/branches/tags/blame are not onboarding evidence.
+- `BLOCKED` is distinct from `FAIL`.
+- Do not increment Framework/Blueprint/Procedure/Evidence versions for speculative changes; test real changes first.
