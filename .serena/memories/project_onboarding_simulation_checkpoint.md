@@ -1,0 +1,1 @@
+Checkpoint before writing the executable runner: implementation direction and design are committed. The runner will be created with isolated temp fixtures and will verify the approved onboarding contracts without changing application source. Framework 1.0.0 / Software Standard 0.1.0 policy remains unchanged.
