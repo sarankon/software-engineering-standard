@@ -1,0 +1,38 @@
+simulation:
+  name: approved-migration-execution-contract
+  framework_baseline: 1.0.0
+  synthetic_target: 1.1.0
+  target_release_status: not-released
+
+preflight:
+  status: pass
+  approval_boundary: explicit-user-approval
+  application_source_changes: prohibited
+
+execution:
+  migration_id: MIG-2026-0001
+  selected_change_items:
+    - MC-001
+  skipped_change_items:
+    - MC-002
+    - MC-003
+    - MC-004
+  status: completed
+  idempotent_rerun: pass
+
+validation:
+  status: pass
+  checks:
+    - id: VAL-001
+      status: pass
+      finding: "Approved metadata transformation reaches the expected target state."
+    - id: VAL-002
+      status: pass
+      finding: "Unapproved change items remain untouched."
+    - id: VAL-003
+      status: pass
+      finding: "Application source/configuration remains unchanged by migration execution."
+
+notes:
+  - "Synthetic test result only; Framework 1.1.0 is not released."
+  - "This example does not authorize or perform application development work."
