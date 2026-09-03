@@ -113,3 +113,7 @@ A completed run SHOULD record:
 - final overall status.
 
 The overall test MUST NOT be marked fully passed when required validation remains `BLOCKED` or `NOT_RUN`; the limitation must remain explicit.
+
+## 7. Runtime Architecture Boundary
+
+This test validates the AI execution model. The target project does not require a separate Automated Bootstrap Runner or Framework Runtime Runner. AI performs the operational steps directly according to the authoritative procedures and approval/state rules. Any executable runner used in a test is test tooling only and is not a target-project runtime component.

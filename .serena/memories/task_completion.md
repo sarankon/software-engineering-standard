@@ -1,7 +1,1 @@
-# Task Completion
-
-- AI Bootstrap completed: root `AI_BOOTSTRAP.md`; copy-ready prompt `ai_development/bootstrap-prompt.md`; usage docs `ai_development/README.md`; updated root `README.md`.
-- Files were read back and internal references checked.
-- No language server is configured, so Serena diagnostics are unavailable.
-- No target-project source code modified.
-- Next: end-to-end bootstrap/onboarding test against `test-fixtures/existing-repository/cr-printing-next`.
+2026-09-03 architecture decision: separate Automated Bootstrap Runner / Framework Runtime Runner is rejected. AI is the execution engine for install, upgrade, migration, and validation. Framework must encode this through authoritative procedures, state flow, approval gates, and validation/traceability. Test-only simulation runners are allowed as test tooling and are not runtime framework components. Documentation alignment remains pending because Serena text-edit operations are unavailable without a language server; no workaround has modified project files yet.

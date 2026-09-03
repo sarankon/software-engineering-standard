@@ -1,27 +1,29 @@
 # AI Development Prompts
 
-This directory contains user-facing prompts and AI development procedures for using Software Engineering Standard with another project.
+This directory contains the AI-facing prompts and procedures used to operate the Software Engineering Standard Framework.
+
+## Operating Model
+
+AI is the primary reader and writer and is also the Framework execution engine. The Framework does not require a separate Automated Bootstrap Runner or Framework Runtime Runner.
+
+AI performs installation, onboarding, upgrade, migration, validation, and recording by following the authoritative procedures, state flow, evidence rules, and approval gates.
 
 ## Recommended usage
 
-The simplest workflow is:
-
-1. Open the Software Engineering Standard repository.
-2. Copy the prompt from [`bootstrap-prompt.md`](./bootstrap-prompt.md).
-3. Paste it into the AI agent working in the target project.
-4. Replace the Framework Repository URL if using a different fork/version source.
-5. Let the AI discover and follow the framework instructions from the repository.
-
-The user prompt intentionally avoids duplicating the framework's detailed procedures. The AI should discover `AI_BOOTSTRAP.md`, then the applicable instructions, Blueprint, Standards, and Procedures.
+1. Start with the bootstrap prompt when initializing a project.
+2. Let AI discover the authoritative Framework entry point, procedures, Blueprints, and Standards from the Framework Repository.
+3. For material changes, AI must inspect and propose before applying and must wait for explicit user approval.
+4. After approval, AI executes the approved operation directly in the target repository.
+5. AI validates the result and records versions, evidence, decisions, changes, limitations, and AI Handoff.
 
 ## Available prompts and procedures
 
-- [`bootstrap-prompt.md`](./bootstrap-prompt.md) — install or initialize the framework in a target project and continue with repository analysis.
-- [`bootstrap/installation-procedure.md`](./bootstrap/installation-procedure.md) — normative new-project installation procedure.
-- [`onboarding/project-onboarding.md`](./onboarding/project-onboarding.md) — umbrella onboarding procedure for new, existing, and update flows.
-- [`migration/framework-update-procedure.md`](./migration/framework-update-procedure.md) — controlled Framework update/migration workflow.
-- [`../schemas/project-onboarding/README.md`](../schemas/project-onboarding/README.md) — onboarding run schema.
-- [`../schemas/framework-update/README.md`](../schemas/framework-update/README.md) — Framework Update / Migration record schema.
-- [`../migrations/framework/README.md`](../migrations/framework/README.md) — version-specific migration guide conventions.
+- `bootstrap-prompt.md` — user-facing bootstrap prompt.
+- `bootstrap/installation-procedure.md` — New Project installation procedure.
+- `onboarding/project-onboarding.md` — umbrella onboarding procedure for new and existing projects.
+- `onboarding/full-bootstrap-test-procedure.md` — repeatable full onboarding test procedure.
+- `migration/framework-update-procedure.md` — Framework update/migration procedure.
+- `migration/migration-execution-validation-procedure.md` — migration execution and validation procedure.
+- `migration/migration-simulation-test-procedure.md` — test-only migration simulation procedure.
 
-The Framework Update procedure requires an assessment and explicit user approval before applying changes that require approval. Application source-code changes remain separate development work.
+Test-only executable tooling, if introduced for Framework testing, is not part of the target-project runtime architecture.

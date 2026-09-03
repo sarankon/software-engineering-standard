@@ -2,62 +2,73 @@
 
 ## 1. Purpose
 
-Operationalize the Framework Migration Execution & Validation Contract for AI agents.
+Define the AI procedure for executing and validating an approved Framework migration in an existing project.
+
+AI is the execution engine. No separate Automated Bootstrap Runner or Framework Runtime Runner is required.
 
 ## 2. Flow
 
-**Preflight → Approval Check → Execute Approved Items → Validate → Complete or Resume**
+`Preflight → Approval Check → Execute → Validate → Complete`
 
 ## 3. Preflight
 
-Read the project-owned Migration record and determine:
+AI MUST:
 
-- Migration ID and status;
-- current/target Framework versions;
-- Change Items and explicit approval;
-- previously completed items;
-- applicable migration guide;
-- expected application-source protection boundary.
-
-If the Migration is already `completed`, run validation only unless the user explicitly requests a new migration.
+1. Read the applicable Framework migration procedure and version-specific guidance.
+2. Confirm current and target versions.
+3. Inspect current Project Context and repository state.
+4. Verify the approved Change Items and their evidence.
+5. Check that the repository has not unexpectedly changed since the plan was approved.
 
 ## 4. Approval Check
 
-Build the execution set from Change Items that are explicitly approved. Never execute `proposed`, `deferred`, or rejected work. If no approved work exists, do not modify the project.
+AI MUST NOT execute material migration changes without explicit user approval. Approval applies only to the identified and presented Change Items. AI must not infer approval from a target version, prompt, or prior conversation.
 
 ## 5. Execute
 
-For each approved unfinished Change Item:
+AI executes approved changes directly in the target repository.
 
-1. Re-check preconditions.
-2. Mark the item `in-progress`.
-3. Apply its deterministic transformation.
-4. Record evidence/outcome.
-5. Mark `completed` only after the transformation succeeds.
-6. If unsafe or incomplete, mark `blocked` or `partial` and stop the dependent execution path.
+AI MUST:
 
-Execution must be resumable. A rerun starts by inspecting the Migration record and skips completed items.
+- apply the smallest appropriate deterministic transformation;
+- preserve project knowledge and traceability;
+- avoid blind overwrite;
+- keep Framework migration separate from unrelated application development;
+- record each completed Change Item;
+- support safe resume without duplicating completed work.
+
+No separate runtime Runner is required.
 
 ## 6. Validate
 
-Run the checks defined by the migration guide and the Execution & Validation Contract. At minimum verify versions, structure, references, state consistency, and application source/configuration protection.
+AI MUST validate:
 
-Do not convert `unknown` validation to `pass` without new evidence.
+- Framework and Blueprint versions;
+- Project Context structure;
+- provenance and evidence;
+- migration result;
+- AI Handoff consistency;
+- affected artifacts;
+- runtime checks where applicable.
+
+Runtime statuses MUST be based on actual execution evidence and classified as `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, or `UNKNOWN` according to Framework policy.
 
 ## 7. Completion
 
-Set Migration to `completed` only when the completion gate passes. Record final versions, validation results, deferred work, and timestamps.
-
-If approved work remains unfinished, keep the Migration `partial` or `blocked`.
+AI records Migration ID, approved/applied/rejected/deferred Change Items, validation results, limitations, unresolved uncertainty, and final completion state.
 
 ## 8. Resume
 
-Resolve the blocking condition, preserve the same Migration ID, re-run preflight, and continue only approved unfinished Change Items. Never create a replacement migration merely to bypass a failed state.
+If execution stops, AI records completed and remaining Change Items and resumes from the known state. Completed work must not be duplicated.
 
-## 9. Application development boundary
+## 9. Application Development Boundary
 
-If execution discovers that application source, database, API, UI, infrastructure, or runtime configuration must change, stop that part of Framework migration and record `propose-development-work`. Wait for a separate user-approved development task.
+If a migration requires application source, database, API, UI, or infrastructure changes beyond Framework artifacts, AI must present that work as a separate proposed development task and obtain the approvals required by the project.
 
-## 10. Required result
+## 10. Required Result
 
-The final execution result should be reproducible and traceable to the Migration ID and Change Item IDs. It should state whether execution completed, was partial/blocked, or was validation-only, and include evidence for every validation check.
+The final report MUST identify what AI actually changed, what was validated, what could not be validated, evidence for the result, and any remaining user decisions.
+
+## 11. Runtime Architecture Boundary
+
+The Framework intentionally uses AI as its execution engine for migration and validation. Executable runners may be used only as test tooling for the Framework and are not required runtime components of target projects.

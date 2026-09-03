@@ -4,6 +4,12 @@
 
 This file is the entry point for an AI agent that has been given access to this Software Engineering Standard repository. It tells the AI how to discover the authoritative framework instructions without requiring the user to know the internal file structure.
 
+## Operating Model
+
+AI is the primary reader and writer and is the execution engine of the Framework. AI directly performs installation, onboarding, upgrade, migration, validation, and recording according to authoritative procedures.
+
+The Framework does not require a separate Automated Bootstrap Runner or Framework Runtime Runner. Executable runners may be used only as test tooling and are not target-project runtime components.
+
 ## Bootstrap Contract
 
 When this repository is provided as the Framework Repository for another software project, the AI MUST:
@@ -26,20 +32,35 @@ When this repository is provided as the Framework Repository for another softwar
 16. Generate or update the AI Handoff required by the Blueprint.
 17. After successful bootstrap, use the resulting Project Context and AI Handoff to understand the project and continue normal development work.
 
+## AI Execution State Model
+
+AI MUST use the following state flow for Framework operations:
+
+`DISCOVER → INSPECT → ANALYZE → PROPOSE → WAIT_FOR_APPROVAL → APPLY → VALIDATE → RECORD`
+
+AI MUST NOT bypass `WAIT_FOR_APPROVAL` for material project changes. A prompt, proposal, target version, implied intent, or conversation continuation is not approval.
+
 ## Framework Update / Migration
 
 When a target project is already using SES and requests an update:
 
 1. Detect current Framework and artifact versions.
 2. Identify the target Framework/artifact versions.
-3. Read applicable version-specific migration guides under `migrations/framework/`.
+3. Read applicable version-specific migration guides under the active migration directory.
 4. Produce an Update Assessment and classify changes as `no-impact`, `compatible`, `migration-required`, or `breaking`.
-5. Create a Migration Plan and unique Migration ID using `schemas/framework-update/`.
-6. Wait for explicit user approval for changes that require approval.
-7. Apply only approved Framework-level transformations.
-8. Keep application source/configuration work as separate proposed development work.
-9. Validate and record the migration result.
-10. Preserve idempotence and allow partial/blocked migrations to resume.
+5. Create a Migration Plan and unique Migration ID using the applicable schema.
+6. Explain material changes, impact, evidence, and validation requirements.
+7. Wait for explicit user approval for changes that require approval.
+8. Apply only approved Framework-level transformations directly in the target project.
+9. Keep application source/configuration work as separate proposed development work.
+10. Validate and record the migration result.
+11. Preserve idempotence and allow partial/blocked migrations to resume.
+
+## Validation
+
+AI is responsible for validation after Framework operations. Validation must use actual evidence and must distinguish `PASS`, `FAIL`, `BLOCKED`, `NOT_RUN`, and `UNKNOWN` according to the Framework runtime validation policy.
+
+`BLOCKED` MUST NOT be interpreted as `FAIL`.
 
 ## Safety and Scope
 
@@ -50,6 +71,7 @@ When a target project is already using SES and requests an update:
 - Do not copy this repository's `.serena/` directory into downstream projects. `.serena/` is the development workspace for this Framework repository, not a distributable Framework artifact.
 - Keep Framework metadata, Blueprint versions, and Software Standard versions explicit in the target Project Context.
 - Framework migration does not implicitly authorize application source-code, database, API, UI, or infrastructure changes.
+- Do not create or depend on a separate Automated Bootstrap Runner or Framework Runtime Runner in the target project's runtime architecture.
 
 ## Discovery Guidance
 

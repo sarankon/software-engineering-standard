@@ -2,218 +2,80 @@
 
 ## 1. Purpose
 
-Define a deterministic test procedure for proving that Framework Update / Migration behavior is safe before a Framework version is released. This procedure exercises the migration workflow against a disposable fixture and does not modify real application source code.
+Validate Framework migration procedures using disposable test fixtures and simulated or executable test tooling. This procedure is for Framework testing only; it does not define a runtime component required by target projects.
 
-The simulation validates:
+## 2. Test Principle
 
-- version detection;
-- Change Item classification;
-- explicit approval gating;
-- deterministic approved transformations;
-- idempotent rerun;
-- resume from partial migration;
-- validation and completion;
-- preservation of application source/configuration.
-
-The synthetic `1.0.0 → 1.1.0` transition used by the current fixture is a test target only. It does not declare Framework `1.1.0` released.
-
-## 2. Test principle
-
-The simulation must prove behavior, not merely inspect documentation.
-
-Use a disposable copy of `test-fixtures/framework-migration`. Never execute migration transformations directly against the framework repository or a user's real project during this test.
-
-The simulation must be deterministic: the same fixture, target version, and approval decisions produce the same migration plan and resulting project state.
+The same fixture, target version, and approval decisions should produce the same migration plan and resulting project state. Tests must preserve fixture protection and must not use Git history as onboarding evidence.
 
 ## 3. Inputs
 
-Required inputs:
+- source fixture;
+- current Framework version;
+- target Framework version;
+- applicable Blueprint and Standards;
+- migration procedure;
+- explicit test approval decisions.
 
-1. `test-fixtures/framework-migration/fixture.yaml`
-2. `schemas/framework-update/README.md`
-3. `ai_development/migration/framework-update-procedure.md`
-4. applicable version-specific migration guide under `migrations/framework/`
-5. a disposable project copy containing the minimum project-owned framework metadata needed by the fixture.
-
-The simulation may inspect current files and configuration. It MUST NOT use Git history, commit messages, diffs, branches, tags, or blame as evidence.
-
-## 4. Test stages
+## 4. Test Stages
 
 ### Stage A — Detect
 
-Read the fixture's current Framework version and target Framework version.
-
-Expected result:
-
-- current version = `1.0.0`;
-- target version = `1.1.0`;
-- target is marked synthetic/test-only;
-- no application source files are selected for migration.
-
-Failure conditions:
-
-- version cannot be established without guessing;
-- target is treated as released when the fixture says test-only;
-- application source is included in Framework migration scope.
+Determine current and target versions and identify applicable migration guidance.
 
 ### Stage B — Analyze
 
-Generate Change Items from the fixture and applicable migration guide.
-
-Expected classifications:
-
-| Change Item | Classification | Expected action |
-|---|---|---|
-| MC-001 | compatible | adopt |
-| MC-002 | migration-required | migrate |
-| MC-003 | compatible | adopt |
-| MC-004 | compatible | propose-development-work |
-
-Every Change Item must contain evidence, impact, approval requirement, and a proposal.
+Inspect fixture source/configuration and Project Context. Identify affected artifacts, mappings, uncertainty, and expected transformations.
 
 ### Stage C — Approval Gate
 
-Run the simulation once with all Change Items unapproved.
-
-Expected result:
-
-- no migration transformation is applied;
-- migration remains `proposed`;
-- approved flags remain false;
-- source/configuration remains byte-for-byte unchanged.
-
-Then run an approved scenario with only the selected deterministic Change Items approved.
-
-The simulator MUST demonstrate that an unapproved Change Item is not executed even when another Change Item is approved.
+Verify that material migration changes remain blocked until explicit approval is supplied by the test scenario. A target version or proposed plan is not approval.
 
 ### Stage D — Execute
 
-Apply only approved migration actions in the documented execution order.
-
-For the synthetic scenario, framework-level transformations may update project-owned metadata and schema-shaped artifacts required by the migration guide. `propose-development-work` must remain a proposal and MUST NOT edit application source, database, API, UI, or infrastructure.
-
-Record the outcome for every Change Item.
+Use AI to execute the approved migration steps directly against the disposable test fixture, or use test-only tooling when required to exercise the procedure. Test tooling is not a target-project runtime component.
 
 ### Stage E — Validate
 
-Validation must check:
+Validate versions, structure, evidence, traceability, migration results, idempotency, and fixture protection.
 
-1. migration status is consistent with Change Item results;
-2. exact target versions are recorded where adoption/migration completed;
-3. schema/structure is valid;
-4. references remain valid;
-5. Project Context remains consistent;
-6. relevant Standard Profile/Assessment references remain consistent;
-7. no unexpected application source/configuration change occurred;
-8. the Migration ID and Change Item IDs remain traceable.
+## 5. Idempotence Test
 
-A migration cannot be marked `completed` unless all required approved work is complete and validation passes.
+Run the approved migration twice or resume after an interrupted step. Confirm that already-completed Change Items are not duplicated.
 
-## 5. Idempotence test
+## 6. Resume Test
 
-After a successful migration, execute the same migration request again using the same Migration ID.
+Simulate interruption after a known Change Item and confirm AI can identify completed and remaining work and continue safely.
 
-Expected result:
+## 7. Negative Approval Test
 
-- completed Change Items are recognized;
-- no duplicate records are created;
-- no transformation is applied twice;
-- final project state is unchanged by the second run;
-- migration remains `completed`.
+Attempt execution without explicit approval and confirm that material changes are not applied.
 
-The test should compare relevant project-owned files/records before and after the second run.
+## 8. Source Protection Test
 
-## 6. Resume test
+Confirm that source/configuration is not modified unless the approved migration explicitly requires and authorizes the change.
 
-Create a disposable scenario in which:
+## 9. Determinism Test
 
-- the Migration exists;
-- some approved Change Items are `completed`;
-- at least one approved Change Item remains unfinished;
-- the Migration is `partial` or `blocked`.
+Confirm that identical fixture state, target version, procedure, and approval decisions produce the same migration plan and result.
 
-Resume using the same Migration ID.
+## 10. Acceptance Matrix
 
-Expected result:
-
-- completed Change Items are skipped;
-- unfinished approved Change Items continue;
-- rejected/deferred/unapproved Change Items remain untouched;
-- the Migration reaches `completed` only if validation passes.
-
-A resumed run must not restart already-completed transformations or create a second Migration ID for the same operation.
-
-## 7. Negative approval test
-
-Attempt to execute an unapproved `migration-required` or `breaking` Change Item.
-
-Expected result: execution is refused or the Change Item remains pending; the simulator must not silently infer approval from a target version, previous proposal, or conversation context.
-
-## 8. Source protection test
-
-Capture a manifest/checksum of application source and relevant application configuration before migration.
-
-After every simulation stage, compare the manifest.
-
-Expected result: Framework migration produces no application source/configuration changes. If application development work is implied, it is represented only as a proposal/reference.
-
-## 9. Determinism test
-
-Run the analysis and planning stages twice from equivalent disposable fixture states with the same target version.
-
-Expected result:
-
-- same Change Item IDs;
-- same classifications;
-- same required actions;
-- equivalent evidence and plan structure;
-- no duplicate Migration records.
-
-Any non-deterministic result must be treated as a test failure until explained by an explicit timestamp or generated execution metadata that is not part of semantic migration state.
-
-## 10. Acceptance matrix
-
-| Test | Pass condition |
+| Area | Acceptance |
 |---|---|
-| Version detection | `1.0.0 → 1.1.0` detected and target remains test-only |
-| Classification | MC-001..MC-004 match fixture expectations |
-| Approval gate | unapproved changes are never executed |
-| Selective approval | only explicitly approved Change Items execute |
-| Deterministic execution | approved transformations produce expected state |
-| Validation | all required checks pass before `completed` |
-| Idempotence | second run produces no additional semantic changes |
-| Resume | completed work is skipped and unfinished approved work continues |
-| Negative approval | unapproved migration is refused/preserved |
-| Source protection | application source/configuration remains unchanged |
-| Determinism | equivalent inputs produce equivalent plans |
+| Detection | current/target versions identified |
+| Analysis | affected artifacts and uncertainty identified |
+| Approval | unapproved material changes blocked |
+| Execution | approved changes applied according to procedure |
+| Validation | resulting state validated |
+| Idempotence | completed work not duplicated |
+| Resume | interrupted work can continue safely |
+| Protection | fixture protected |
 
-## 11. Test result record
+## 11. Test Result Record
 
-A simulation run should record:
+Record test ID, fixture, versions, change items, approval decision, execution evidence, validation results, limitations, and final status.
 
-- simulation ID;
-- fixture identifier/version;
-- current and target Framework versions;
-- Migration ID;
-- approval scenario;
-- Change Item results;
-- validation results;
-- idempotence result;
-- resume result;
-- source protection result;
-- final status;
-- unresolved failures.
+## 12. Release Boundary
 
-Recommended project/repository location for test records:
-
-```text
-test-fixtures/framework-migration/results/<simulation-id>.yaml
-```
-
-Test results are evidence for Framework development/release readiness. They do not by themselves release a Framework version.
-
-## 12. Release boundary
-
-The simulation must pass before a candidate Framework version is treated as releasable. Passing this procedure does not itself publish or adopt the target version.
-
-For the current synthetic scenario, the expected outcome is a successful simulation of migration behavior while `1.1.0` remains explicitly unreleased.
+Simulation/test tooling is not part of the Framework runtime architecture. The target project relies on AI as the execution engine for installation, upgrade, migration, and validation. A test runner may exist only to automate or support testing of these procedures.

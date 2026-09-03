@@ -61,7 +61,6 @@ When a Blueprint or Standard changes, migration guidance SHOULD identify:
 - compatibility expectations;
 - validation required after migration.
 
-
 ## Runtime Validation Status
 
 Runtime validation MUST use one of four statuses: `PASS`, `FAIL`, `BLOCKED`, or `NOT_RUN`.
@@ -72,3 +71,7 @@ Runtime validation MUST use one of four statuses: `PASS`, `FAIL`, `BLOCKED`, or 
 - `NOT_RUN`: runtime execution has not been attempted or was intentionally deferred.
 
 `BLOCKED` MUST NOT be interpreted as `FAIL`. The test report MUST record the blocked reason and, when applicable, the exact command/check that could not be completed. Runtime status MUST NOT be inferred from static inspection alone.
+
+## Runtime Execution Model
+
+Framework runtime operations are performed by AI according to the applicable procedures and approval/state rules. The Framework does not require a separate Automated Bootstrap Runner or Framework Runtime Runner. Any executable runner used to test Framework procedures is test tooling only and is not a target-project runtime component.
