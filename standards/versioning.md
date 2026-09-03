@@ -60,3 +60,15 @@ When a Blueprint or Standard changes, migration guidance SHOULD identify:
 - records that may change;
 - compatibility expectations;
 - validation required after migration.
+
+
+## Runtime Validation Status
+
+Runtime validation MUST use one of four statuses: `PASS`, `FAIL`, `BLOCKED`, or `NOT_RUN`.
+
+- `PASS`: the target runtime check was actually executed in a suitable environment and passed.
+- `FAIL`: the target runtime check was actually executed and failed due to the project/framework under test.
+- `BLOCKED`: execution was attempted or required, but could not be completed because of environment, permission, dependency, tooling, or execution constraints outside the test subject.
+- `NOT_RUN`: runtime execution has not been attempted or was intentionally deferred.
+
+`BLOCKED` MUST NOT be interpreted as `FAIL`. The test report MUST record the blocked reason and, when applicable, the exact command/check that could not be completed. Runtime status MUST NOT be inferred from static inspection alone.
