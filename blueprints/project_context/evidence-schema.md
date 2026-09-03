@@ -54,7 +54,7 @@ Preferred examples:
 
 ```text
 package.json
-.project-context/memories/decisions.md
+.project-context/decisions/decisions.md
 lib/db/schema.ts
 commit:8a0cded
 config:database.url

@@ -31,10 +31,12 @@ It stores project understanding and state, not source code.
 │   └── blocked.md
 ├── project-rules/
 ├── history/
-└── ai-handoff/
+├── ai-handoff/
+├── standards/
+└── framework/
 ```
 
-The exact files under a domain may grow as the Blueprint evolves. Domain names are stable conceptual boundaries, not restrictions on implementation.
+The exact files under a domain may grow as the Blueprint evolves. Domain names are stable conceptual boundaries, not restrictions on implementation. The `standards/` domain stores project-owned Standard Profile and Assessment records; it does not replace the installed Framework Standards under `.project-context/project-standard/standards/`. The `framework/` domain stores project-owned Framework version and migration records.
 
 ## Ownership and Change Flow
 

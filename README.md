@@ -65,7 +65,7 @@ Explicit migration paths for upgrading existing projects when a Standard or Blue
 Projects using the current Project Context Blueprint maintain project-specific information in the Blueprint-defined domain structure. The current blueprint separates at least:
 
 ```text
-project-context/
+.project-context/
 ├── project-identity/
 ├── technology/
 ├── architecture/
@@ -75,7 +75,9 @@ project-context/
 ├── work-management/
 ├── project-rules/
 ├── history/
-└── ai-handoff/
+├── ai-handoff/
+├── standards/
+└── framework/
 ```
 
 Project Context is project-owned knowledge, not source code and not external AI memory.

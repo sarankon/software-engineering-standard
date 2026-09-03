@@ -24,10 +24,12 @@ Project/
     │   ├── standards/
     │   └── manifest.yaml
     ├── architecture/
+    ├── standards/
+    ├── framework/
     ├── decisions/
     ├── requirements/
     ├── technology/
-    ├── work/
+    ├── work-management/
     └── history/
 ```
 
