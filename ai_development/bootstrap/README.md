@@ -7,3 +7,5 @@ AI is the execution engine for bootstrap operations and performs the procedures 
 - `installation-procedure.md` - New Project Bootstrap Installation Procedure v1.0.0
 
 Existing repositories use the Project Context Onboarding Procedure under `blueprints/project_context/ONBOARDING.md`.
+
+- `installation-scenario-validation.md` - Installation Scenario Validation Procedure v1.0.0
