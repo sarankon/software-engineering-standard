@@ -1,1 +1,0 @@
-Full onboarding simulation v1: target `test-fixtures/existing-repository/cr-printing-next`; protected fixture unchanged; Git metadata excluded; source/config strongest; old context supporting; user decisions authoritative; AI inference proposed/unknown; discovery/evidence PASS; final generated-context stage uses disposable copy.

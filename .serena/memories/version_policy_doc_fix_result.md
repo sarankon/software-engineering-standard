@@ -1,1 +1,0 @@
-On 2026-09-03, standards/versioning.md was aligned with the approved pre-production version policy. The illustrative Project Context Schema version is now 1.0.0 and the illustrative SES-DB Software Standard version is now 0.1.0. Historical memories were intentionally left unchanged. git diff --check passed and the change was committed as 6f043db.
