@@ -31,14 +31,14 @@ blueprint:
   version: 1.0.0
 schemas:
   project-context:
-    version: 0.1.0
+    version: 1.0.0
 procedures:
   onboarding:
     version: 1.0.0
 standards:
   - id: SES-DB
     name: Database Standard
-    version: 1.0.0
+    version: 0.1.0
 ```
 
 ## Change Rules
