@@ -130,7 +130,32 @@ Before presenting the result as complete, validate:
 - the recorded Blueprint/Standard versions are correct;
 - no Git history or Git metadata was used as onboarding evidence.
 
-## 5. Onboarding Completion Record
+## 5. Runtime Validation
+
+Runtime validation is a separate validation layer from static repository/context inspection.
+
+When the repository exposes executable checks such as dependency installation, lint, type-check, tests, build, or application startup, AI SHOULD attempt the checks that are appropriate and safe for the onboarding environment. Long-running services or interactive processes MUST NOT be started through an execution channel that cannot manage them safely.
+
+Each runtime check MUST use one of these statuses:
+
+- `PASS` — the check was actually executed in a suitable environment and passed.
+- `FAIL` — the check was actually executed and failed due to the project/framework under test.
+- `BLOCKED` — execution could not complete because of environment, permission, dependency, tooling, or other execution constraints outside the test subject.
+- `NOT_RUN` — the check was not attempted or was intentionally deferred.
+
+A non-zero command result during dependency/environment setup MUST NOT automatically be classified as a project `FAIL`. The agent MUST diagnose the failure boundary sufficiently to distinguish an environment blocker from a project failure. For example, if a native dependency cannot install because the required build toolchain is unavailable, the runtime check is `BLOCKED` unless independent evidence demonstrates a project defect.
+
+Runtime results MUST record, when available:
+
+- command/check name;
+- status;
+- environment limitation or failure reason;
+- relevant concise error evidence;
+- whether the result affects onboarding completion.
+
+Runtime status MUST NOT be inferred from static inspection alone. A runtime `BLOCKED` result does not invalidate a successful static onboarding, but it MUST remain visible as a limitation and MUST NOT be reported as runtime `PASS`.
+
+## 6. Onboarding Completion Record
 
 A completed onboarding SHOULD retain a concise record of:
 
@@ -141,11 +166,12 @@ A completed onboarding SHOULD retain a concise record of:
 - evidence sources inspected;
 - unavailable sources or limitations;
 - material conflicts discovered;
-- unresolved questions requiring user decisions.
+- unresolved questions requiring user decisions;
+- runtime validation results and any `BLOCKED`/`NOT_RUN` limitations.
 
 This record belongs in Project Context history or another canonical project-owned onboarding record defined by the implementation.
 
-## 6. Upgrade vs. Re-Onboarding
+## 7. Upgrade vs. Re-Onboarding
 
 A normal Blueprint version upgrade transforms an existing Project Context according to the version migration guidance.
 
