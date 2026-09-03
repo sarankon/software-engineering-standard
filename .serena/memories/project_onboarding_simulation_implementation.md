@@ -1,0 +1,1 @@
+Executable onboarding simulation implementation is now being added under test-fixtures/project-onboarding. The simulation is framework-owned test infrastructure only; it does not change application source code or the real existing-project fixture.
