@@ -3,3 +3,5 @@ test-fixtures/*
 # Framework-owned migration simulation fixture is part of this repository.
 !test-fixtures/framework-migration/
 !test-fixtures/framework-migration/**
+!test-fixtures/project-onboarding/ 
+!test-fixtures/project-onboarding/**
