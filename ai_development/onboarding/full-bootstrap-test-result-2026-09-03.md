@@ -9,11 +9,13 @@
 
 ## 1. Overall Result
 
-**PARTIAL / BLOCKED**
+**PASS WITH WARNING**
 
-The framework workflow passed repository discovery, evidence/context inspection, user decision boundary, static validation, and fixture protection. Runtime validation remains `BLOCKED` because the execution environment does not provide Python required by `node-gyp` during `better-sqlite3` installation.
+The final validation completed successfully across repository discovery, evidence/context inspection, user decision boundary, static validation, runtime validation, and fixture protection. Runtime checks completed successfully with `better-sqlite3` explicitly configured as `false` in the fixture `pnpm-workspace.yaml`, as required by the final-validation precondition.
 
-The framework architecture was subsequently clarified by explicit user decision: AI is the execution engine for installation, upgrade, migration, and validation. A separate Automated Bootstrap Runner or Framework Runtime Runner is not part of the target-project runtime architecture.
+The lint check reports one existing warning (`@next/next/no-page-custom-font`) and zero errors. This warning does not prevent the runtime validation from passing.
+
+The framework architecture remains AI-driven: AI is the execution engine for installation, upgrade, migration, and validation. A separate Automated Bootstrap Runner or Framework Runtime Runner is not part of the target-project runtime architecture.
 
 ## 2. Results
 
@@ -38,13 +40,15 @@ No unsupported business-intent inference was promoted to confirmed fact. Existin
 
 Git history, commit messages, diffs, branches, tags, and blame are excluded from onboarding evidence.
 
-## 5. Runtime Blocker
+## 5. Runtime Validation Result
 
-Observed runtime environment supports Node.js and pnpm, but does not provide Python. Dependency installation therefore cannot complete the native `better-sqlite3` build path through `node-gyp`.
+The final runtime validation was executed with the intentional precondition `better-sqlite3: false` in `pnpm-workspace.yaml`.
 
-Classification: **BLOCKED**, not FAIL.
+- Dependency installation: **PASS** - `pnpm install --frozen-lockfile` completed successfully.
+- Lint: **PASS** - `pnpm lint` completed with 0 errors and 1 warning (`@next/next/no-page-custom-font`).
+- Production build / TypeScript: **PASS** - `pnpm build` compiled successfully, completed TypeScript validation, generated all static pages, and finalized optimization.
 
-The non-zero installation result is insufficient to classify the project as defective because the execution environment is missing a required build-toolchain component.
+The previous native `node-gyp`/Python blocker was not encountered under the intentional final-test configuration.
 
 ## 6. Fixture Protection
 
@@ -68,6 +72,8 @@ The execution model is procedure/state driven:
 
 AI must not bypass `WAIT_FOR_APPROVAL` for material changes. Test-only simulation runners remain allowed as testing tools and are not runtime components of target projects.
 
-## 8. Next Action
+## 8. Final Conclusion
 
-Do not change the fixture source to work around the runtime blocker. Re-run runtime validation in a suitable environment with the required native build toolchain. Continue using AI directly as the execution engine for Framework operations; no separate runtime Runner is required.
+The Full Bootstrap / Existing Repository Onboarding validation is **PASS WITH WARNING**. The only runtime finding is the existing lint warning noted above; there are no runtime errors or build failures in the final test configuration.
+
+The fixture remains intentionally configured with `better-sqlite3: false` for this final-validation scenario and must not be restored to `true` as part of test cleanup.
