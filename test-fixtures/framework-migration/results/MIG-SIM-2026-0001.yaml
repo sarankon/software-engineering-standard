@@ -1,0 +1,26 @@
+simulation:
+  id: MIG-SIM-2026-0001
+  fixture: framework-migration-basic
+  fixture_path: test-fixtures/framework-migration/fixture.yaml
+  framework_from: 1.0.0
+  framework_to: 1.1.0
+  target_release_status: not-released
+  result: pass
+
+checks:
+  version_detection: pass
+  classification: pass
+  approval_gate: pass
+  selective_approval: pass
+  deterministic_execution: pass
+  validation_state: pass
+  idempotence: pass
+  resume: pass
+  negative_approval: pass
+  determinism: pass
+  source_protection: pass
+
+notes:
+  - Framework 1.1.0 remains synthetic/test-only.
+  - Application source/configuration was not modified by the simulation.
+  - This result demonstrates migration behavior readiness only; it does not release Framework 1.1.0.

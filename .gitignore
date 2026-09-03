@@ -1,2 +1,5 @@
 # Existing repository test fixtures
-test-fixtures/
+test-fixtures/*
+# Framework-owned migration simulation fixture is part of this repository.
+!test-fixtures/framework-migration/
+!test-fixtures/framework-migration/**

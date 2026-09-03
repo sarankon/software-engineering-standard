@@ -1,0 +1,25 @@
+fixture:
+  name: framework-migration-basic
+  purpose: Validate Framework Update / Migration planning and approval boundaries.
+
+project:
+  framework_version: 1.0.0
+  target_framework_version: 1.1.0
+  project_context_version: 1.0.0
+
+expected:
+  migration_status: proposed
+  approval_required: true
+  application_source_changes: prohibited
+  synthetic_target_only: true
+
+change_items:
+  - id: MC-001
+    classification: compatible
+  - id: MC-002
+    classification: migration-required
+  - id: MC-003
+    classification: compatible
+  - id: MC-004
+    classification: compatible
+    action: propose-development-work
