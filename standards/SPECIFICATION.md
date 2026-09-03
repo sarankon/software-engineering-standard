@@ -83,7 +83,7 @@ Software Standards use Semantic Versioning:
 
 A project adoption MUST identify the exact Standard version it uses.
 
-Pre-production Standards SHOULD remain at `1.0.0` until they have been exercised against real projects.
+Pre-production Software Standards SHOULD remain at `0.1.0` until they have been reviewed seriously and exercised against real projects. Framework-owned components remain at `1.0.0` until the user explicitly approves a version change.
 
 Rule IDs are independent of the Standard collection version and MUST remain stable when the semantic meaning of a Rule remains unchanged.
 
