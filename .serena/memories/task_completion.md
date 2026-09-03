@@ -1,1 +1,7 @@
-2026-09-03: Architecture documentation alignment completed and committed in 79822ea (`docs: make AI the framework execution engine`). Repository-wide consistency review confirms current Framework docs consistently describe AI as the execution engine and explicitly exclude a separate Automated Bootstrap Runner / Framework Runtime Runner from target-project runtime architecture. Remaining runner references are intentional: architecture prohibition, historical memories, or test-only simulation tooling. `git diff --check` was run before commit and reported only Markdown trailing-space warnings in two edited docs; these are formatting-only Markdown line-break spaces. Working tree was clean after commit. Runtime validation of the existing-project fixture remains BLOCKED by the native dependency/toolchain environment blocker recorded previously.
+# Task Completion — Current
+
+## 2026-09-03 Roadmap Progress
+- Step 1 Final Framework Consistency Review: COMPLETE / PASS; committed as `ea776f9`.
+- Step 2 Framework Contract Review: COMPLETE / PASS; verified New/Existing/Update lifecycle coherence, component boundaries, and repository-only AI continuity. No actionable gap found and no repository content changes required.
+- User approved Step 2 as PASS.
+- Next: Full Bootstrap / Onboarding Validation.
