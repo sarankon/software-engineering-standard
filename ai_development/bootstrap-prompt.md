@@ -32,7 +32,7 @@ https://github.com/sarankon/software-engineering-standard.git
 - ห้ามเดาข้อมูลที่ไม่มีหลักฐาน
 - หากข้อมูลไม่เพียงพอ ให้บันทึกเป็น Unknown หรือ Proposed ตามความเหมาะสม
 - ให้ Current Repository เป็นแหล่งอ้างอิงหลักสำหรับ Current Implementation Facts
-- Git history ใช้เป็น Historical Evidence ไม่ใช่หลักฐานของ Current Work โดยอัตโนมัติ
+- ห้ามใช้ Git history, commit messages, diffs, branches, tags หรือ blame เป็นหลักฐานในการ Onboarding หรือการ Reconstruct Project Context
 - อย่าถือ README ที่เป็น boilerplate หรือข้อมูลที่ล้าสมัยว่าเป็นความจริงของ Project หาก Source Code / Configuration / Context ให้ข้อมูลที่น่าเชื่อถือกว่า
 - อย่าลบข้อมูล Project Context เดิมเพียงเพราะโครงสร้างเปลี่ยน เว้นแต่ Procedure กำหนดให้ Re-onboarding; หาก Re-onboarding ให้ใช้ข้อมูลเดิมเป็น Evidence/Reference และให้ Current Repository เป็นแหล่งข้อมูลหลัก
 

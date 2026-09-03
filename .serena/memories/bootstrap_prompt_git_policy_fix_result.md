@@ -1,0 +1,1 @@
+On 2026-09-03, ai_development/bootstrap-prompt.md was aligned with the current onboarding evidence policy. The prior wording allowed Git history as historical evidence; it was replaced with an explicit prohibition on using Git history, commit messages, diffs, branches, tags, or blame as evidence for Onboarding or Project Context reconstruction. git diff --check passed.
