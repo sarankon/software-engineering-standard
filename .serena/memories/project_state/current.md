@@ -5,7 +5,8 @@
 - Framework contract review: complete / PASS. Commit `16d2fba`.
 - Full Bootstrap / Existing Repository Onboarding validation: complete with limitation / PARTIAL-BLOCKED. Commit `9095e7e`; runtime blocker remains native `better-sqlite3` / `node-gyp` requiring Python; classify as `BLOCKED`, not `FAIL`.
 - Framework architecture remains AI-as-execution-engine; no target-project runtime runner.
-- Approved Project AI Entry/Installation architecture has now been formally documented in `architecture/ai-entry-installation.md` and reflected in `ai_development/bootstrap/installation-procedure.md`; these edits are currently uncommitted and are the subject of the next consistency review.
+- Project AI Entry/Installation Architecture formalized and committed in `a7b2375`.
+- Follow-up consistency corrections completed and committed in `db2fc18`: canonical `.project-context/` paths, Project Context `standards/` and `framework/` domains, and corrected evidence example path.
 
 ## Latest User Decisions
 - For current Framework usage, assume the AI agent can access GitHub, read the Framework repository, and download/clone it. Do not add fallback mechanisms for access limitations now; adapt only if a real agent limitation is reported.
@@ -17,6 +18,10 @@
 - Future vendor-specific instruction files should point back to `AGENTS.md` where possible instead of duplicating Framework instructions.
 - Existing `AGENTS.md` content must not be overwritten; Framework integration should be additive and traceable.
 
+## Latest Completed Work
+- Consistency correction commit `db2fc18` is the current documentation baseline. Corrected README and AI-entry installation paths to `.project-context/`, aligned Project Context domain diagrams, and corrected the evidence-schema example from obsolete `.project-context/memories/decisions.md` to `.project-context/decisions/decisions.md`.
+- `git diff --check` passed after the corrections.
+
 ## Intended Pilot Workflow
 1. Clone one old project as a disposable/controlled Pilot.
 2. Copy `ai_development/bootstrap-prompt.md` from Framework and paste it into the AI agent working in the Pilot.
@@ -26,9 +31,6 @@
 6. AI applies only approved changes, validates, and records results.
 
 ## Current Next Work
-1. Review all Framework documents that reference installation paths, Project Context locations, AGENTS.md, bootstrap entry behavior, and Framework update/migration so they agree with the newly formalized architecture.
-2. Resolve documentation/contract conflicts within the already-approved architecture; ask the user only if a genuinely new material architecture decision is required.
-3. Validate installation scenarios: no AGENTS.md, existing project-owned AGENTS.md, old Framework installation, Framework update/migration, and existing Project Context.
-4. Commit the formalization and consistency corrections.
-5. Re-run validation and record the result.
-6. Pilot on one real old project.
+1. Validate installation scenarios: no AGENTS.md, existing project-owned AGENTS.md, old Framework installation, Framework update/migration, and existing Project Context.
+2. Re-run validation and record the result.
+3. Pilot on one real old project.
