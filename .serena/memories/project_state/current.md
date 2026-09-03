@@ -5,6 +5,7 @@
 - Framework contract review: complete / PASS. Commit `16d2fba`.
 - Full Bootstrap / Existing Repository Onboarding validation: complete with limitation / PARTIAL-BLOCKED. Commit `9095e7e`; runtime blocker remains native `better-sqlite3` / `node-gyp` requiring Python; classify as `BLOCKED`, not `FAIL`.
 - Framework architecture remains AI-as-execution-engine; no target-project runtime runner.
+- Approved Project AI Entry/Installation architecture has now been formally documented in `architecture/ai-entry-installation.md` and reflected in `ai_development/bootstrap/installation-procedure.md`; these edits are currently uncommitted and are the subject of the next consistency review.
 
 ## Latest User Decisions
 - For current Framework usage, assume the AI agent can access GitHub, read the Framework repository, and download/clone it. Do not add fallback mechanisms for access limitations now; adapt only if a real agent limitation is reported.
@@ -25,4 +26,9 @@
 6. AI applies only approved changes, validates, and records results.
 
 ## Current Next Work
-Formalize the approved Project AI Entry/Installation architecture before implementation. Then update the Installation/Bootstrap contracts, Framework Update/Migration behavior, Existing Repository Onboarding behavior, and tests so a newly installed project remains AI-navigable in future sessions without duplicating instructions across agent-specific files.
+1. Review all Framework documents that reference installation paths, Project Context locations, AGENTS.md, bootstrap entry behavior, and Framework update/migration so they agree with the newly formalized architecture.
+2. Resolve documentation/contract conflicts within the already-approved architecture; ask the user only if a genuinely new material architecture decision is required.
+3. Validate installation scenarios: no AGENTS.md, existing project-owned AGENTS.md, old Framework installation, Framework update/migration, and existing Project Context.
+4. Commit the formalization and consistency corrections.
+5. Re-run validation and record the result.
+6. Pilot on one real old project.
