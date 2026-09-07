@@ -1,7 +1,7 @@
 # Current Project State
 
 - Framework: `software-engineering-standard`, branch `main`.
-- Framework baseline: 1.0.0; Project Context Blueprint: 1.0.0; Software Standards: 0.1.0 pre-production.
+- Framework baseline: 1.1.0; Project Context Blueprint: 1.0.0; Software Standards: Foundation 0.2.0; other pre-production standards remain 0.1.0.
 - Architecture: AI is the direct Framework execution engine; no separate target-project runtime/bootstrap runner. User is the authorization boundary; material changes require explicit approval.
 - Project AI entry: root `AGENTS.md` → `.project-context/AI_INSTRUCTIONS.md` → installed Framework artifacts under `.project-context/project-standard/`; project-specific Context domains remain directly under `.project-context/`.
 - Existing `AGENTS.md` must be preserved; Framework integration is additive and traceable.

@@ -126,6 +126,8 @@ The AI entry point establishes how an AI agent enters the project; it does not d
 
 Detailed requirements for planning, implementation, verification, context maintenance, and completion belong in the AI Development standards.
 
+When the Framework provides a Project Context Maintenance Procedure, the AI entry point MUST make that procedure discoverable for normal development work so that implementation completion cannot bypass context reconciliation.
+
 ## Exceptions
 
 A project MAY use a different entry-point mechanism when its AI platform or development environment provides an equivalent authoritative mechanism.

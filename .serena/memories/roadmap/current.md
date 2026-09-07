@@ -1,8 +1,8 @@
 # Roadmap Status
 
 ## Current phase
-- Framework 1.0.0 / Project Context Blueprint 1.0.0 are the working baseline.
-- Software Standards remain 0.1.0 pre-production.
+- Framework 1.1.0 / Project Context Blueprint 1.0.0 are the working baseline.
+- Foundation Standard is 0.2.0 due to the AI entry-point maintenance requirement; other Software Standards remain 0.1.0 pre-production.
 - Full Bootstrap / Existing Repository Onboarding validation is complete: PASS WITH WARNING.
 - Next phase is real-world Pilot usage, not broad preemptive framework expansion.
 

@@ -31,6 +31,7 @@ When this repository is provided as the Framework Repository for another softwar
 15. Validate the resulting Project Context against the active Blueprint before considering bootstrap complete.
 16. Generate or update the AI Handoff required by the Blueprint.
 17. After successful bootstrap, use the resulting Project Context and AI Handoff to understand the project and continue normal development work.
+18. For every normal development task, follow `ai_development/context-maintenance/project-context-maintenance.md` before considering the task complete. Implementation completion alone is not task completion: AI MUST assess Project Context impact, reconcile affected canonical domains and work-state transitions, and reconcile AI Handoff when continuity information changed.
 
 ## AI Execution State Model
 
