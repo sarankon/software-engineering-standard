@@ -1,7 +1,7 @@
 # Project Context Maintenance Procedure
 
-**Procedure Version:** 1.0.0  
-**Status:** Active  
+**Procedure Version:** 1.1.0
+**Status:** Active
 **Applies To:** Normal development work in SES-enabled projects
 
 ## Purpose
@@ -20,7 +20,7 @@ If no Project Context mutation is required, AI MUST explicitly determine that th
 
 AI MUST use the following lifecycle for normal development work:
 
-`READ CONTEXT → EXECUTE WORK → VALIDATE → ASSESS CONTEXT IMPACT → RECONCILE CONTEXT → RECONCILE AI HANDOFF → COMPLETE`
+`READ CONTEXT → EXECUTE WORK → VALIDATE → ASSESS CONTEXT IMPACT → RECONCILE CONTEXT → RECONCILE AI HANDOFF → COMPLETION GATE → COMPLETE`
 
 ### 1. Read Context
 
@@ -69,9 +69,29 @@ After canonical Project Context is updated, AI MUST update/reconcile AI Handoff 
 
 AI Handoff is derived context and MUST NOT override canonical Project Context.
 
-### 7. Complete
+### 7. Completion Gate
 
-Only after context-impact assessment and all required reconciliation may AI report the development task as complete.
+Before reporting the development task as complete, AI MUST produce an explicit Context Reconciliation Result containing:
+
+```text
+Project Context Impact: REQUIRED | NOT_REQUIRED
+Affected Domains: <canonical domains, or NONE>
+Work State: completed | in-progress | next | backlog | blocked | NOT_APPLICABLE
+Context Files Updated: <paths, or NONE>
+AI Handoff Updated: YES | NO | NOT_REQUIRED
+Reason: <brief evidence-based explanation>
+```
+
+The result MUST satisfy these rules:
+
+- `REQUIRED` MUST include at least one affected canonical domain and updated Context files, unless the task is blocked before reconciliation; in that case, the result MUST explain the blocker.
+- `NOT_REQUIRED` MUST include an evidence-based reason why the work introduced no durable project knowledge or execution-state change.
+- A successful implementation test MUST NOT be used as a substitute for this gate.
+- AI MUST NOT report the task as complete while any required Context or AI Handoff reconciliation remains pending.
+
+### 8. Complete
+
+Only after the Completion Gate and all required reconciliation may AI report the development task as complete.
 
 The completion response SHOULD concisely identify meaningful Project Context updates when any were made. It SHOULD NOT claim Project Context was updated when no mutation was required.
 

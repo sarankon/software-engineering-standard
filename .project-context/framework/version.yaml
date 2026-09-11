@@ -1,6 +1,6 @@
 framework:
   name: software-engineering-standard
-  version: 1.1.0
+  version: 1.2.0
   record_state: confirmed
   source: repository-root
   adopted_at: 2026-09-03
@@ -14,13 +14,13 @@ artifacts:
     framework_update: 1.0.0
   procedure:
     framework_update: 1.0.0
-    project_context_maintenance: 1.0.0
+    project_context_maintenance: 1.1.0
   standards:
     software_standard_baseline: 0.1.0
     foundation: 0.2.0
 
 update:
-  released_version: 1.1.0
+  released_version: 1.2.0
   status: released
-  released_at: 2026-09-07
-  note: Framework 1.1.0 introduces mandatory Project Context maintenance for normal development completion.
+  released_at: 2026-09-11
+  note: Framework 1.2.0 strengthens normal development completion with a mandatory Project Context Completion Gate and explicit reconciliation result.
